@@ -1,0 +1,29 @@
+# Aufgabenblatt 01
+Quelle: http://edu.cs.uni-magdeburg.de/EC/lehre/wintersemester-2015-2016/dokumentverarbeitung/uebungen/gruppe-2-fr-13-15-uhr/uebungsblaetter/aufgabenblatt-1 (21.10.2015)
+
+## Aufgabe 1: Dokumentklasse und Dokumentinstanz
+Beschreiben Sie drei verschiedene Dokumentklassen. Geben Sie zu jeder Dokumentklasse mindestens ein Beispiel für eine Dokumentinstanz an!
+
+Dokumentenklasse:
+* spiegelt die Art des Objektes wieder, das dokumentiert werden soll
+* nicht alle beziehen sich auf Objekte, sondern sie liegen dann als eigene Systemobjekte vor
+
+Dokumenteninstanz:
+* beinhaltet Elemente, Attribute, Entitäten und Zeichenfolgen
+
+* Article:
+  * z.B. wissenschaftlichr Artikel in einer  Zeitschrift
+  * Titel auf keiner eigenen Seite, also da wo der Artikel ist
+  * Seitenzählung
+  * einseitiges Layout
+  * Abbildungen, Tabellen haben fortlaufene Nummerierung
+* Book:
+  * Titel ist auf einer eigene Seite
+  * Seitenzählung (z.b. römischen Ziffern)
+  * in einem wissenschaftlichen Buch gibt es eine kapitelweise Nummerierung der Abbildung und Tabellen
+* Letter:
+  * hat keine bestimmte Ebenen, außer die Merkmale, wie Absender, Anschrift, Gruß
+  * Bsp. Liebesbrief
+
+## Aufgabe 2: Dokumentanalyse
+Sehen Sie sich das folgende Dokument an (Anhang 01). Beschreiben Sie die vorkommenden Strukturelemente im Dokument.

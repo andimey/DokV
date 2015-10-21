@@ -1,0 +1,87 @@
+Earthquake Details
+
+
+Magnitude	5.1
+Date-Time
+
+    * Saturday, October 09, 2010 at 19:04:52 UTC
+    * Saturday, October 09, 2010 at 10:04:52 PM at epicenter
+    * Time of Earthquake in other Time Zones
+
+Location	38.197°N, 22.769°E
+Depth	26.6 km (16.5 miles)
+Region	GREECE
+Distances	90 km (55 miles) WNW of ATHENS, Greece
+90 km (55 miles) E of Patrai, Greece
+140 km (90 miles) NNE of Kalamata, Greece
+165 km (100 miles) S of Larisa, Greece
+Location Uncertainty	horizontal +/- 12.9 km (8.0 miles); depth +/- 0.2 km (0.1 miles)
+Parameters	NST=113, Nph=120, Dmin=99.1 km, Rmss=1.02 sec, Gp= 76°,
+M-type=body wave magnitude (Mb), Version=8
+Source
+
+    * USGS NEIC (WDCS-D)
+
+Event ID	usa0003xq8
+
+http://earthquake.usgs.gov/earthquakes/recenteqsww/Quakes/usa0003xq8.php
+
+************************************************************************
+
+Earthquake Details
+
+Magnitude	5.1
+Date-Time
+
+    * Friday, October 15, 2010 at 09:56:52 UTC
+    * Friday, October 15, 2010 at 07:56:52 PM at epicenter
+    * Time of Earthquake in other Time Zones
+
+Location	4.569°S, 153.703°E
+Depth	73.7 km (45.8 miles)
+Region	NEW IRELAND REGION, PAPUA NEW GUINEA
+Distances	75 km (45 miles) E of Taron, New Ireland, PNG
+175 km (110 miles) ESE of Rabaul, New Britain, PNG
+900 km (560 miles) NE of PORT MORESBY, Papua New Guinea
+2535 km (1580 miles) N of BRISBANE, Queensland, Australia
+Location Uncertainty	horizontal +/- 31.1 km (19.3 miles); depth +/- 19.5 km (12.1 miles)
+Parameters	NST= 16, Nph= 18, Dmin=175.9 km, Rmss=0.78 sec, Gp=227°,
+M-type=body wave magnitude (Mb), Version=5
+Source
+
+    * USGS NEIC (WDCS-D)
+
+Event ID	usa00040hm
+
+http://earthquake.usgs.gov/earthquakes/recenteqsww/Quakes/usa00040hm.php
+
+************************************************************************
+
+Earthquake Details
+
+
+Magnitude	3.4
+Date-Time
+
+    * Friday, October 15, 2010 at 11:04:10 UTC
+    * Friday, October 15, 2010 at 04:04:10 AM at epicenter
+    * Time of Earthquake in other Time Zones
+
+Location	37.876°N, 121.390°W
+Depth	13.6 km (8.5 miles)
+Region	NORTHERN CALIFORNIA
+Distances	10 km (5 miles) WNW of Lathrop, California
+10 km (10 miles) SW of Stockton, California
+40 km (25 miles) ESE of Antioch, California
+80 km (50 miles) S of SACRAMENTO, California
+Location Uncertainty	horizontal +/- 0.3 km (0.2 miles); depth +/- 0.4 km (0.2 miles)
+Parameters	Nph= 78, Dmin=23 km, Rmss=0.2 sec, Gp= 50°,
+M-type=local magnitude (ML), Version=2
+Source
+
+    * California Integrated Seismic Net:
+    * USGS Caltech CGS UCB UCSD UNR
+
+Event ID	nc71474381
+
+http://earthquake.usgs.gov/earthquakes/recenteqsww/Quakes/nc71474381.php
