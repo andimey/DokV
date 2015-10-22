@@ -70,17 +70,29 @@ PCDATA:
 
 <!DOCTYPE text [
 <!ELEMENT text -- (überschrift, stärke, datum/zeit, koordinaten, tiefe, region, distanzen, unsicherheiten, parameter, m-type, quelle, event id, link)>
+
 <!ELEMENT überschrift -- (#PCDATA)+>
+
 <!ELEMENT stärke -- (#PCDATA)+>
+
 <!ELEMENT datum/zeit -- (#PCDATA)+>
+
 <!ELEMENT koordinaten -- (#PCDATA)+>
+
 <!ELEMENT tiefe	-- (#PCDATA)+>
+
 <!ELEMENT region -- (#PCDATA)+>
+
 <!ELEMENT distanzen -- (#PCDATA)+>
+
 <!ELEMENT unsicherheiten -- (#PCDATA)+>
+
 <!ELEMENT parameter -- (#PCDATA)+>
+
 <!ELEMENT quelle -- (#PCDATA)+>
+
 <!ELEMENT event id -- (#PCDATA)+>
+
 <!ELEMENT link -- (#PCDATA)+>
 ]>
 
@@ -124,15 +136,13 @@ e) nein, da die Endmarkierung zuerst kommt < /a >, ohne eine Startmarkierung vor
 ## Aufgabe 5: Inhaltsmodell
 Erstellen Sie drei Beispiele, die dem folgenden SGML-DTD-Fragment entsprechen (nehmen Sie an, dass die Inhaltsmodelle der in book enthaltenen Elemente jeweils (#PCDATA) sind):
 
-element book - - \(\(editor\|author)+, title+, subtitle*, ed?, series?,
-                      place, publ, year, isbn?, issn?, sign*,
-                      keyword*, url*, (comment? & note? & abstract?))>
+element book - - \(\(editor\|author)+, title+, subtitle*, ed?, series?,place, publ, year, isbn?, issn?, sign*,keyword*, url*, (comment? & note? & abstract?))>
 
 Bsp.1:
-* A. Lee Martinez, "Gott im Unglück", Muenchen, Piper Verlag GmbH, 2012
+* Gerald Teschl, "Mathematik für Informatiker: Band 1, Heidelberg, Springer-Verlag Berlin, 2013
 
 Bsp.2:
-* G. E. Lessing, "Nathan der Weise", Stuttgart, Phillip Reclam jun. GmbH & Co., 2000, 3-15-000003-3
+* Gerald Teschl, "Mathematik für Informatiker: Band 1", "Diskrete Mathematik und Lineare Algebra ", 4. Auflage, Heidelberg, Springer-Verlag Berlin, 2013, ISBN-13: 978-3642379710, http://www.amazon.de/gp/product/3642379710?keywords=mathematik%20für%20informatiker&qid=1445522744&ref_=sr_1_1&sr=8-1
 
 Bsp.3:
-* S. Fischer-Fabian, "Die Macht des Gewissens", Bergisch Gladbach, Lübbe GmbH & CO., 2005, 3-404-64212-0
+*  John Barwise, John Etchemendy, "Sprache, Beweis und Logik", "Aussagen- und Prädikatenlogik", Paderborn, mentis Verlag GmbH, 2005, "Must read" 
