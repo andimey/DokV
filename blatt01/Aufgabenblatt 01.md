@@ -25,6 +25,8 @@ Dokumenteninstanz:
   * hat keine bestimmte Ebenen, außer die Merkmale, wie Absender, Anschrift, Gruß
   * Bsp. Liebesbrief
 
+Quelle: http://www.students.uni-mainz.de/julschue/LaTeX/03_Dokumentenklassen.pdf (22.10.2015)
+
 ## Aufgabe 2: Dokumentanalyse
 Sehen Sie sich das folgende Dokument an (Anhang 01). Beschreiben Sie die vorkommenden Strukturelemente im Dokument.
 
@@ -145,4 +147,4 @@ Bsp.2:
 * Gerald Teschl, "Mathematik für Informatiker: Band 1", "Diskrete Mathematik und Lineare Algebra ", 4. Auflage, Heidelberg, Springer-Verlag Berlin, 2013, ISBN-13: 978-3642379710, http://www.amazon.de/gp/product/3642379710?keywords=mathematik%20für%20informatiker&qid=1445522744&ref_=sr_1_1&sr=8-1
 
 Bsp.3:
-*  John Barwise, John Etchemendy, "Sprache, Beweis und Logik", "Aussagen- und Prädikatenlogik", Paderborn, mentis Verlag GmbH, 2005, "Must read" 
+*  John Barwise, John Etchemendy, "Sprache, Beweis und Logik", "Aussagen- und Prädikatenlogik", Paderborn, mentis Verlag GmbH, 2005, "Must read"
