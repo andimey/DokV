@@ -98,6 +98,49 @@ PCDATA:
 <!ELEMENT link -- (#PCDATA)+>
 ]>
 
+
+```
+<!DOCTYPE earthquakes [
+ <!ELEMENT earthquake -- (Titel, Magnitude, Date-Times, Location, Depth, Region, Distances, Uncertainity, Parameterlist, M-Type, Version, Sourcelist, EventID, URL)+>
+
+ <!ELEMENT Titel - - ("Earthquake Details")>
+
+ <!ELEMENT Magnitude - - (#PCDATA)>
+
+ <!ELEMENT Date-Time - - (UTC, LT, (TimezoneTime)*)>
+  <!ELEMENT UTC - - (#PCDATA)>
+  <!ELEMENT LT - - (#PCDATA)>
+  <!ELEMENT TimezoneTime - - (#PCDATA)>
+
+ <!ELEMENT Location - - (#PCDATA)>
+
+ <!ELEMENT Depth	- - (#PCDATA)>
+
+ <!ELEMENT Region - - (#PCDATA)>
+
+ <!ELEMENT Distances - - (DistanceFrom)+>
+  <!ELEMENT DistanceFrom - - (#PCDATA)>
+
+ <!ELEMENT Uncertainity - - (horr, depth)>
+  <!ELEMENT horr - - (#PCDATA)>
+  <!ELEMENT depth - - (#PCDATA)>
+
+ <!ELEMENT Parameterlist - - (NST?, param, param, param, param)>
+  <!ELEMENT NST - - (#PCDATA)>
+  <!ELEMENT param - - (#PCDATA)>
+
+ <!ELEMENT M-Type - - (#PCDATA)>
+ <!ELEMENT Version - - (#PCDATA)>
+
+ <!ELEMENT Sourcelist - - (Source)+>
+  <!ELEMENT Source - - (#PCDATA)>
+
+ <!ELEMENT EventID - - (#PCDATA)+>
+
+ <!ELEMENT URL - - (#PCDATA)>
+]>
+```
+
 ## Aufgabe 4: Minimierung
 Kann man bei den folgenden Beispielen entscheiden, ob es sich um
 potentiell gültige SGML-Dokumente handelt, ohne dass SGML-Deklaration
@@ -109,7 +152,7 @@ b) < a >< /a >< b >< /b >
 
 c) < a >< a >< /a >< /b >
 
-d) < a >< b >< /a >< b >
+d) ```< a >< b >< /a >< b >```
 
 e) < b >< /a >< a >< c >< /b >< b >
 
