@@ -67,6 +67,7 @@ d) ja gültig. Eindeutig auflösbar auch ohne ```</b>```:
 e) sh. Universal DTD am Dokumentenanfang
 
 oder:
+```
 <!DOCTYPE test [
   <!ELEMENT test - - (b)+ >
   <!ELEMENT a o o (c)* >

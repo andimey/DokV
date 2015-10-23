@@ -158,24 +158,65 @@ e) < b >< /a >< a >< c >< /b >< b >
 
 Definieren Sie, falls möglich, für jede der Konstruktionen eine DTD, die diese zulässt. Die Elemente < a >, < b > und < c > sollen dabei von einem Wurzelelement < test > umschlossen werden, dessen Start- und Endetag vorhanden sein müssen.
 
-a) nein, da es keine Endmarkierung gibt
+*Vorbemerkung:*
+FÜR ALLE BEISPIELE WÜRDE AUCH GELTEN: -> dann aber nichtmehr eindeutig
+```
+<!DOCTYPE test [
+  <!ELEMENT test - - (a|b|c)+ >
+  <!ELEMENT a o o (#PCDATA) >
+  <!ELEMENT b o o (#PCDATA) >
+  <!ELEMENT c o o (#PCDATA) >
+]>
+```
 
-b) ja, da es zu jeder Startmarkierung auch eine Endmarkierung gibt
-$$< test >
-< a > ... < /a >
-< b > ... < /b >
-< /test >$$
+a) ja
+```
+<!DOCTYPE test [
+  <!ELEMENT test - - (a|b)+ >
+  <!ELEMENT a - o (#PCDATA) >
+  <!ELEMENT b - o (#PCDATA) >
+]>
+```
+b) ja
+```
+<!DOCTYPE test [
+  <!ELEMENT test - - (a,b) >
+  <!ELEMENT a - - (#PCDATA) >
+  <!ELEMENT b - - (#PCDATA) >
+]>
+```
 
-c) nein, da zweimal das < a > kommt und dann die erst die Endmarkierung
 
-d) ja, Parser nimmt Ende eines Elements an, wenn Endemarkierung eines Elements gefunden, zu dessen Inhalt betroffenes Element gehört
-$$< test >
-< a > < b > ... < /b >
-< /a >
-< b > ... < /b >
-< /test >$$
+c) ja, dann aber nichtmehr eindeutig zuzuordnen. z.B. ```<a>Hallo Welt</b>```
+```
+<!DOCTYPE test [
+  <!ELEMENT test - - (a|b)+ >
+  <!ELEMENT a - o (#PCDATA) >
+  <!ELEMENT b o - (#PCDATA) >
+]>
+```
 
-e) nein, da die Endmarkierung zuerst kommt < /a >, ohne eine Startmarkierung vorher
+d) ja gültig. Eindeutig auflösbar auch ohne ```</b>```:
+
+```
+<!DOCTYPE test [
+  <!ELEMENT test - - (a,b) >
+  <!ELEMENT a - - (b) >
+  <!ELEMENT b - O (#PCDATA) >
+]>
+```
+
+e) sh. Universal DTD am Dokumentenanfang
+
+oder:
+```
+<!DOCTYPE test [
+  <!ELEMENT test - - (b)+ >
+  <!ELEMENT a o o (c)* >
+  <!ELEMENT b - o (a)* >
+  <!ELEMENT c - o (#PCDATA) >
+]>
+```
 
 ## Aufgabe 5: Inhaltsmodell
 Erstellen Sie drei Beispiele, die dem folgenden SGML-DTD-Fragment entsprechen (nehmen Sie an, dass die Inhaltsmodelle der in book enthaltenen Elemente jeweils (#PCDATA) sind):
