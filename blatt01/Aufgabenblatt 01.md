@@ -125,12 +125,11 @@ PCDATA:
   <!ELEMENT horr - - (#PCDATA)>
   <!ELEMENT depth - - (#PCDATA)>
 
- <!ELEMENT Parameterlist - - (NST?, param, param, param, param)>
+ <!ELEMENT Parameterlist - - (NST?, param, param, param, param, M-Type, Version)>
   <!ELEMENT NST - - (#PCDATA)>
   <!ELEMENT param - - (#PCDATA)>
-
- <!ELEMENT M-Type - - (#PCDATA)>
- <!ELEMENT Version - - (#PCDATA)>
+  <!ELEMENT M-Type - - (#PCDATA)>
+  <!ELEMENT Version - - (#PCDATA)>
 
  <!ELEMENT Sourcelist - - (Source)+>
   <!ELEMENT Source - - (#PCDATA)>
