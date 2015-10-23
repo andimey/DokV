@@ -16,16 +16,26 @@ e) ```< b >< /a >< a >< c >< /b >< b >```
 
 Definieren Sie, falls möglich, für jede der Konstruktionen eine DTD, die diese zulässt. Die Elemente < a >, < b > und < c > sollen dabei von einem Wurzelelement < test > umschlossen werden, dessen Start- und Endetag vorhanden sein müssen.
 
+*Vorbemerkung:*
+FÜR ALLE BEISPIELE WÜRDE AUCH GELTEN: -> dann aber nichtmehr eindeutig
+```
+<!DOCTYPE test [
+  <!ELEMENT test - - (a|b|c)+ >
+  <!ELEMENT a o o (#PCDATA) >
+  <!ELEMENT b o o (#PCDATA) >
+  <!ELEMENT c o o (#PCDATA) >
+]>
+```
+
 a) ja
 ```
 <!DOCTYPE test [
   <!ELEMENT test - - (a|b)+ >
-  <!ELEMENT a - O (#PCDATA) >
-  <!ELEMENT b - O (#PCDATA) >
+  <!ELEMENT a - o (#PCDATA) >
+  <!ELEMENT b - o (#PCDATA) >
 ]>
 ```
 b) ja
-
 ```
 <!DOCTYPE test [
   <!ELEMENT test - - (a,b) >
@@ -35,7 +45,14 @@ b) ja
 ```
 
 
-c) nein, öffnendes ```<b>``` fehlt.
+c) ja, dann aber nichtmehr eindeutig zuzuordnen. z.B. ```<a>Hallo Welt</b>```
+```
+<!DOCTYPE test [
+  <!ELEMENT test - - (a|b)+ >
+  <!ELEMENT a - o (#PCDATA) >
+  <!ELEMENT b o - (#PCDATA) >
+]>
+```
 
 d) ja gültig. Eindeutig auflösbar auch ohne ```</b>```:
 
@@ -47,4 +64,13 @@ d) ja gültig. Eindeutig auflösbar auch ohne ```</b>```:
 ]>
 ```
 
-e) nein, öffnendes ```<a>``` fehlt.
+e) sh. Universal DTD am Dokumentenanfang
+
+oder:
+<!DOCTYPE test [
+  <!ELEMENT test - - (b)+ >
+  <!ELEMENT a o o (c)* >
+  <!ELEMENT b - o (a)* >
+  <!ELEMENT c - o (#PCDATA) >
+]>
+```
