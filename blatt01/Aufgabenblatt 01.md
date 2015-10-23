@@ -12,7 +12,7 @@ Dokumenteninstanz:
 * beinhaltet Elemente, Attribute, Entitäten und Zeichenfolgen
 
 * Article:
-  * z.B. wissenschaftlichr Artikel in einer  Zeitschrift
+  * z.B. ein bestimmter wissenschaftlichr Artikel in einer  Zeitschrift
   * Titel auf keiner eigenen Seite, also da wo der Artikel ist
   * Seitenzählung
   * einseitiges Layout
@@ -21,9 +21,10 @@ Dokumenteninstanz:
   * Titel ist auf einer eigene Seite
   * Seitenzählung (z.b. römischen Ziffern)
   * in einem wissenschaftlichen Buch gibt es eine kapitelweise Nummerierung der Abbildung und Tabellen
+  * z.B. "Die kürzeste Geschichte der Zeit"
 * Letter:
   * hat keine bestimmte Ebenen, außer die Merkmale, wie Absender, Anschrift, Gruß
-  * Bsp. Liebesbrief
+  * z.B. Meine Kündigung des Mietvertrags
 
 Quelle: http://www.students.uni-mainz.de/julschue/LaTeX/03_Dokumentenklassen.pdf (22.10.2015)
 
@@ -69,73 +70,35 @@ Entity:
 
 PCDATA:
 * ein Schluesselwort für einen Textblock, der auch weitere Anweisungen an den Parser enthalten kann
-
+```
 <!DOCTYPE text [
 <!ELEMENT text -- (überschrift, stärke, datum/zeit, koordinaten, tiefe, region, distanzen, unsicherheiten, parameter, m-type, quelle, event id, link)>
-
-<!ELEMENT überschrift -- (#PCDATA)+>
-
-<!ELEMENT stärke -- (#PCDATA)+>
-
-<!ELEMENT datum/zeit -- (#PCDATA)+>
-
-<!ELEMENT koordinaten -- (#PCDATA)+>
-
-<!ELEMENT tiefe	-- (#PCDATA)+>
-
-<!ELEMENT region -- (#PCDATA)+>
-
-<!ELEMENT distanzen -- (#PCDATA)+>
-
-<!ELEMENT unsicherheiten -- (#PCDATA)+>
-
-<!ELEMENT parameter -- (#PCDATA)+>
-
-<!ELEMENT quelle -- (#PCDATA)+>
-
-<!ELEMENT event id -- (#PCDATA)+>
-
-<!ELEMENT link -- (#PCDATA)+>
-]>
-
-
+```
 ```
 <!DOCTYPE earthquakes [
  <!ELEMENT earthquake -- (Titel, Magnitude, Date-Times, Location, Depth, Region, Distances, Uncertainity, Parameterlist, M-Type, Version, Sourcelist, EventID, URL)+>
-
- <!ELEMENT Titel - - ("Earthquake Details")>
-
- <!ELEMENT Magnitude - - (#PCDATA)>
-
- <!ELEMENT Date-Time - - (UTC, LT, (TimezoneTime)*)>
+  <!ELEMENT Titel - - ("Earthquake Details")>
+  <!ELEMENT Magnitude - - (#PCDATA)>
+  <!ELEMENT Date-Time - - (UTC, LT, (TimezoneTime)+)>
   <!ELEMENT UTC - - (#PCDATA)>
   <!ELEMENT LT - - (#PCDATA)>
   <!ELEMENT TimezoneTime - - (#PCDATA)>
-
- <!ELEMENT Location - - (#PCDATA)>
-
- <!ELEMENT Depth	- - (#PCDATA)>
-
- <!ELEMENT Region - - (#PCDATA)>
-
- <!ELEMENT Distances - - (DistanceFrom)+>
+  <!ELEMENT Location - - (#PCDATA)>
+  <!ELEMENT Depth	- - (#PCDATA)>
+  <!ELEMENT Region - - (#PCDATA)>
+  <!ELEMENT Distances - - (DistanceFrom)+>
   <!ELEMENT DistanceFrom - - (#PCDATA)>
-
- <!ELEMENT Uncertainity - - (horr, depth)>
+  <!ELEMENT Uncertainity - - (horr, depth)>
   <!ELEMENT horr - - (#PCDATA)>
   <!ELEMENT depth - - (#PCDATA)>
-
- <!ELEMENT Parameterlist - - (NST?, param, param, param, param, M-Type, Version)>
+  <!ELEMENT Parameterlist - - (NST?, param, param, param, param, M-Type, Version)>
   <!ELEMENT NST - - (#PCDATA)>
   <!ELEMENT param - - (#PCDATA)>
   <!ELEMENT M-Type - - (#PCDATA)>
   <!ELEMENT Version - - (#PCDATA)>
-
- <!ELEMENT Sourcelist - - (Source)+>
+  <!ELEMENT Sourcelist - - (Source)+>
   <!ELEMENT Source - - (#PCDATA)>
-
  <!ELEMENT EventID - - (#PCDATA)+>
-
  <!ELEMENT URL - - (#PCDATA)>
 ]>
 ```
@@ -191,7 +154,7 @@ c) ja, dann aber nichtmehr eindeutig zuzuordnen. z.B. ```<a>Hallo Welt</b>```
 ```
 <!DOCTYPE test [
   <!ELEMENT test - - (a|b)+ >
-  <!ELEMENT a - o (#PCDATA) >
+  <!ELEMENT a - o (a|#PCDATA) >
   <!ELEMENT b o - (#PCDATA) >
 ]>
 ```
@@ -212,8 +175,8 @@ oder:
 ```
 <!DOCTYPE test [
   <!ELEMENT test - - (b)+ >
-  <!ELEMENT a o o (c)* >
-  <!ELEMENT b - o (a)* >
+  <!ELEMENT a o o (c|#PCDATA)* >
+  <!ELEMENT b - o (a|#PCDATA)* >
   <!ELEMENT c - o (#PCDATA) >
 ]>
 ```
@@ -223,11 +186,47 @@ Erstellen Sie drei Beispiele, die dem folgenden SGML-DTD-Fragment entsprechen (n
 
 element book - - \(\(editor\|author)+, title+, subtitle*, ed?, series?,place, publ, year, isbn?, issn?, sign*,keyword*, url*, (comment? & note? & abstract?))>
 
-Bsp.1:
-* Gerald Teschl, "Mathematik für Informatiker: Band 1, Heidelberg, Springer-Verlag Berlin, 2013
+```
+<book>
+  <author> Andy Weir
+  <title> The Martian </title>
+  <subtitle> A Novel
+  <place> USA
+  <publ> BOWY
+  <year> 2015
+  <isbn> 978-1101905555
+  <keyword> Fiction
+  <keyword> Science Fiction
+  <keyword> Action & Adventure
+  <comment> "Brilliant…"--Wall Street Journal
+</book>
 
-Bsp.2:
-* Gerald Teschl, "Mathematik für Informatiker: Band 1", "Diskrete Mathematik und Lineare Algebra ", 4. Auflage, Heidelberg, Springer-Verlag Berlin, 2013, ISBN-13: 978-3642379710, http://www.amazon.de/gp/product/3642379710?keywords=mathematik%20für%20informatiker&qid=1445522744&ref_=sr_1_1&sr=8-1
+<book>
+  <author> Dr. Anton Hammer
+  <author> Dr. Hildegard Hammer
+  <author> Dr. Karl Hammer
+  <title> Physikalische Formeln und Tabellen </title>
+  <ed> 8
+  <place> München
+  <publ> Lindauer Verlag
+  <year> 2002
+  <isbn> 3-87488-182-2
+  <keyword> Physik
+  <keyword> Gymnasium
+  <url>http://www.amazon.de/Physikalische-Formeln-Tabellen-Hammer/dp/3874881822
+</book>
 
-Bsp.3:
-*  John Barwise, John Etchemendy, "Sprache, Beweis und Logik", "Aussagen- und Prädikatenlogik", Paderborn, mentis Verlag GmbH, 2005, "Must read"
+<book>
+  <author> Figgen
+  <author> Plath
+  <author> Rothfischer </title>
+  <title> Verkehrsflugzeuge
+  <subtitle> Das neue Typen-Taschenbuch
+  <place> München
+  <publ> GeraMond Verlag
+  <year> 2008
+  <isbn> 978-3-7654-7011-0
+  <url> http://geramon.de
+  <note> Aktualisierte Neuausgabe!
+</book>
+```
