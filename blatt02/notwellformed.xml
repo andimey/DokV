@@ -11,7 +11,7 @@ Edinburgh versank im Fjord.
 <Gedicht quelle="http://www.gutenberg.aol.de/fontane/gedichte/bruecke.htm"
 <!- Anfang des Gedichts -> >
 
-<Autor>Theodor Fontane (1819-1898)
+<Autor>Theodor Fontane (1819-1898)</Autor>
 
 <Titel>Die Brück&apos; am Tay</Titel>
 
@@ -31,7 +31,7 @@ Edinburgh versank im Fjord.
 <Windhexe name="Ἄτροπος">Hei, das gibt ein Ringelreihn, <newline>
 und die Brücke muß in den Grund hinein.;</Windhexe>
 <Windhexe name="Λάχεσις"><Frage>Und der Zug, der in die Brücke tritt <newline>
-um die siebente Stund&apos;;</Windhexe></Frage>
+um die siebente Stund&apos;</Frage>;</Windhexe>
 <Windhexe name="Κλωϑω">Ei, der muß mit.;</Windhexe>
 <Windhexe name="Ἄτροπος">Muß mit.;</Windhexe>
 <Windhexe name="Λάχεσις">Tand, Tand <newline>
@@ -115,4 +115,5 @@ Wie Splitter brach das Gebälk entzwei.;</Windhexe>
 ist das Gebilde von Menschenhand;</Windhexe>
 </Strophe nummer=8 zeilen=12>
 
-</Gedicht <!- Ende des Gedichts-> >
+</Gedicht <!- Ende des Gedichts->
+<!--Ende-->

@@ -9,6 +9,9 @@ Ihre Einreichung wird automatisch auf Wohlgeformtheit überprüft.
 ## Aufgabe 7
  1. Wie werden laut XML-Spezifikation Attribute definiert und wie werden diese Attribute in einer DTD verwendet? Was sind ihre möglichen Werte und Bedeutungen?
 
+ alle Attributwerte werden als String geschrieben und in
+" ... " eingeschlossen
+
  2. Daten können in XML-Dokumenten als Inhalt von Kind-Knoten oder als Knotenattribute gespeichert werden. In den folgenden Beispielen ist der gleiche Inhalt auf unterschiedliche Weise -- mittels Kindknoten oder Attributen -- gespeichert.
 
 ### Beispiel 1
