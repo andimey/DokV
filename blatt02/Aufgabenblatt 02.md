@@ -69,6 +69,40 @@ Ihre Einreichung wird automatisch auf Wohlgeformtheit überprüft.**
 ## Aufgabe 9
 **Welche Knoten kann ein XML-Dokument beinhalten? Geben Sie als Beispiel ein XML-Dokument an, welches alle möglichen Knoten innerhalb einer XML-Baumstruktur beinhaltet.**
 
+* Root node (Wurzelknoten): Dieser darf nicht mit dem Wurzelelement selbst verwechselt werden. Vielmehr ist dieser der virtuelle Elternknoten (parent node) des Wurzelelements.
+* Element node (Elementknoten)
+* Attribute node (Attributknoten)
+* Text node (Textknoten)
+* Namespace node (Namensraumknoten)
+* Processing instruction node (Verarbeitungsanweisungsknoten)
+* Comment node (Kommentarknoten)
+
+      <?xml version="1.0" encoding="UTF-8"?>
+      <EUROPA>
+        <LAND>
+          <NAME>Deutschland</NAME>
+          <EINWOHNERZAHL EINHEIT="Millionen">82.4</EINWOHNERZAHL>
+          <HAUPTSTADT>Berlin</HAUPTSTADT>
+          <KFZ-KENNZEICHEN>D</KFZ-KENNZEICHEN>
+          <TEL-VORWAHL>0049</TEL-VORWAHL>
+        </LAND>
+        <LAND>
+          <NAME>Frankreich</NAME>
+          <EINWOHNERZAHL EINHEIT="Millionen">58.5</EINWOHNERZAHL>
+          <HAUPTSTADT>Paris</HAUPTSTADT>
+          <KFZ-KENNZEICHEN>F</KFZ-KENNZEICHEN>
+          <TEL-VORWAHL>0033</TEL-VORWAHL>
+        </LAND>
+        <LAND>
+            <NAME>Spanien</NAME>
+            <EINWOHNERZAHL EINHEIT="Millionen">39.4</EINWOHNERZAHL>
+            <HAUPTSTADT>Madrid</HAUPTSTADT>
+            <KFZ-KENNZEICHEN>E</KFZ-KENNZEICHEN>
+            <TEL-VORWAHL>0034</TEL-VORWAHL>
+            </LAND>
+      </EUROPA>
+
+
 ---
 
 ## Aufgabe 10
