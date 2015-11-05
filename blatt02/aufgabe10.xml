@@ -26,4 +26,74 @@
   <stadt kreis="Altmarkkreis Salzwedel" breite="52.8503387" laenge="11.16466">
     <name>Salzwedel</name>
   </stadt>
+
+  <kreis kfz="ABI">
+    <name>Anhalt-Bitterfeld </name>
+  </kreis>
+  <stadt kreis="Anhalt Bitterfeld" breite="51.750278" laenge="11.980278">
+    <name>Köthen</name>
+  </stadt>
+
+  <kreis kfz="BLK">
+    <name>Burglandkreis </name>
+  </kreis>
+  <stadt kreis="Burglandkreis" breite="51.1525" laenge="11.81">
+    <name>Naumburg</name>
+  </stadt>
+
+  <kreis kfz="DE">
+    <name>Dessau-Roßlau </name>
+  </kreis>
+  <stadt kreis="Dessau-Roßlau" breite="51.860556" laenge="12.246944">
+    <name>Dessau-Roßlau</name>
+  </stadt>
+
+  <kreis kfz="HAL">
+    <name>Halle (Saale) </name>
+  </kreis>
+  <stadt kreis="Halle (Saale)" breite="51.482778" laenge="11.97">
+    <name>Halle (Saale)</name>
+  </stadt>
+
+  <kreis kfz="HZ">
+    <name>Harz </name>
+  </kreis>
+  <stadt kreis="Harz" breite="51.898056" laenge="11.056667">
+    <name>Halberstadt</name>
+  </stadt>
+
+  <kreis kfz="MSH">
+    <name>Mansfeld-Südharz </name>
+  </kreis>
+  <stadt kreis="Mansfeld-Südharz" breite="51.473056" laenge="11.298056">
+    <name>Sangerhausen</name>
+  </stadt>
+
+  <kreis kfz="SK">
+    <name>Saalekreis </name>
+  </kreis>
+  <stadt kreis="Saalekreis" breite="51.354722" laenge="11.999167">
+    <name>Merseburg</name>
+  </stadt>
+
+  <kreis kfz="SLK">
+    <name>Salzlandkreis </name>
+  </kreis>
+  <stadt kreis="Salzlandkreis" breite="51.793611" laenge="11.7425">
+    <name>Bernburg</name>
+  </stadt>
+
+  <kreis kfz="SDL">
+    <name>Stendal </name>
+  </kreis>
+  <stadt kreis="Stendal" breite="52.605278" laenge="11.86">
+    <name>Stendal</name>
+  </stadt>
+
+  <kreis kfz="WB">
+    <name>Wittenberg </name>
+  </kreis>
+  <stadt kreis="Wittenberg" breite="51.866667" laenge="12.643333">
+    <name>Lutherstadt Wittenberg</name>
+  </stadt>
 </land>
