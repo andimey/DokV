@@ -1,0 +1,29 @@
+<land>
+  <kreis kfz="MD">
+    <name>Magdeburg</name>
+  </kreis>
+  <stadt kreis="Magdeburg" breite="52.133333" laenge="11.616667">
+    <name>Magdeburg</name>
+  </stadt>
+
+  <kreis kfz="JL">
+    <name>Jerichower Land</name>
+  </kreis>
+  <stadt kreis="Jerichower Land" breite="52.269722" laenge="11.854722">
+    <name>Burg</name>
+  </stadt>
+
+  <kreis kfz="BK">
+    <name>Börde</name>
+  </kreis>
+  <stadt kreis="Börde" breite="52.290583" laenge="11.412945">
+    <name>Haldensleben</name>
+  </stadt>
+
+  <kreis kfz="SAW">
+    <name>Altmarkkreis Salzwedel </name>
+  </kreis>
+  <stadt kreis="Altmarkkreis Salzwedel" breite="52.8503387" laenge="11.16466">
+    <name>Salzwedel</name>
+  </stadt>
+</land>

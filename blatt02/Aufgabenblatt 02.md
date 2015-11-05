@@ -73,20 +73,45 @@ Welche Knoten kann ein XML-Dokument beinhalten? Geben Sie als Beispiel ein XML-D
 ## Aufgabe 10
 Erstellen Sie ein XML-Dokument, welches Informationen zu den Landkreisen und Kreisstädten sowie den kreisfreien Städten von Sachsen-Anhalt beinhaltet. Verwenden Sie folgende Elemente und Attribute:
 
-*<!ELEMENT land     (kreis|stadt)*>
+    <!ELEMENT land     (kreis|stadt)>
+    <!ELEMENT kreis            (name)>
+    <!ELEMENT stadt            (name)>
+    <!ELEMENT name          (#PCDATA)>
+    <!ATTLIST kreis kfz    CDATA #REQUIRED>
+    <!ATTLIST stadt kreis  CDATA #REQUIRED>
+    <!-- Angaben zur geografischen Laenge und Breite (dezimaler Form) -->
+    <!ATTLIST stadt breite CDATA #REQUIRED>
+    <!ATTLIST stadt laenge CDATA #REQUIRED>
 
-*<!ELEMENT kreis            (name)>
+Lösung:
+[aufgabe10.xml](aufgabe10.xml)
 
-<!ELEMENT stadt            (name)>
+    <land>
+      <kreis kfz="JL">
+        <name>Jerichower Land</name>
+      </kreis>
+      <stadt kreis="Jerichower Land" breite="52.269722" laenge="11.854722">
+        <name>Burg</name>
+      </stadt>
 
-<!ELEMENT name          (#PCDATA)>
+      <kreis kfz="MD">
+        <name>Magdeburg</name>
+      </kreis>
+      <stadt kreis="Magdeburg" breite="52.133333" laenge="11.616667">
+        <name>Magdeburg</name>
+      </stadt>
 
-<!ATTLIST kreis kfz    CDATA #REQUIRED>
+      <kreis kfz="BK">
+        <name>Börde</name>
+      </kreis>
+      <stadt kreis="Börde" breite="52.290583" laenge="11.412945">
+        <name>Haldensleben</name>
+      </stadt>
 
-<!ATTLIST stadt kreis  CDATA #REQUIRED>
-
-<!-- Angaben zur geografischen Laenge und Breite (dezimaler Form) -->
-
-<!ATTLIST stadt breite CDATA #REQUIRED>
-
-<!ATTLIST stadt laenge CDATA #REQUIRED>*
+      <kreis kfz="SAW">
+        <name>Altmarkkreis Salzwedel </name>
+      </kreis>
+      <stadt kreis="Altmarkkreis Salzwedel">
+        <name>Salzwedel</name>
+      </stadt>
+    </land>
