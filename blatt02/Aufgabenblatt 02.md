@@ -10,6 +10,19 @@ Ihre Einreichung wird automatisch auf Wohlgeformtheit überprüft.**
 
 ## Aufgabe 7
  **1. Wie werden laut XML-Spezifikation Attribute definiert und wie werden diese Attribute in einer DTD verwendet? Was sind ihre möglichen Werte und Bedeutungen?**
+ (https://wiki.selfhtml.org/wiki/XML/DTD/Attribute_und_Wertzuweisungen)
+ Attribute werden im Element Tag durch Bezeichnung und Wert in Anführungszeichen definiert:
+   <element attributname="attributwert">Text/Inhalt</element>
+
+in der DTD werden sie so definiert:
+  <!ELEMENT Elementname (Inhalt)>
+  <!ATTLIST Elementname
+     Attributname_1 Inhalt [#REQUIRED|#IMPLIED|#FIXED "Wert"|Defaultwert]
+     Attributname_n Inhalt [#REQUIRED|#IMPLIED|#FIXED "Wert"|Defaultwert]
+  >
+
+
+
 
  alle Attributwerte werden als String geschrieben und in
 " ... " eingeschlossen
@@ -25,6 +38,11 @@ Ihre Einreichung wird automatisch auf Wohlgeformtheit überprüft.**
       <body>Don't forget me this weekend!</body>
     </note>
 
+
+ * Datum als Attribut
+ * sonst alles in eigenen Elementen
+ * u.U. nicht eindeutig in Bestandteile zerlegbar (Reihenfolge Monat Tag)
+
 ### Beispiel 2
     <note>
       <date>12/11/2002</date>
@@ -33,6 +51,9 @@ Ihre Einreichung wird automatisch auf Wohlgeformtheit überprüft.**
       <heading>Reminder</heading>
       <body>Don't forget me this weekend!</body>
     </note>
+
+ * alle Daten in Elementen
+ * u.U. nicht eindeutig in Bestandteile zerlegbar (Reihenfolge Monat Tag)
 
 ### Beispiel 3
     <note>
@@ -47,13 +68,36 @@ Ihre Einreichung wird automatisch auf Wohlgeformtheit überprüft.**
       <body>Don't forget me this weekend!</body>
     </note>
 
+ * keine Attribute
+ * alles in Elementen
+ * Datum strukturiert in Unterknoten zerlegt gespeichert
+
 ### Beispiel 4
     <note day="12" month="11" year="2002"
     to="Tove" from="Jani" heading="Reminder"
     body="Don't forget me this weekend!">
     </note>
+ * keine Kinderknoten mehr
+ * alles in Attributen definiert -> schwer lesbar
 
 **Alle vier Beispiele enthalten exakt die gleichen Informationen. Diskutieren Sie die Vor- und Nachteile der Nutzung von Elementen und Attributen zur Datenhaltung in den vier Beispielen. Welche Probleme können auftreten, wenn Daten als Attribute gespeichert werden?**
+
+(http://www.w3schools.com/Xml/xml_dtd_el_vs_attr.asp)
+
+Bsp 1: - Datum als Attribut, sonst alles in Elementen u.U. nicht eindeutig in Bestandteile zerlegbar (reihenfolge Monat Tag)
+Bsp 2: - keine Attribute, alles in Elementen aber Datum u.U. nicht eindeutig in Bestandteile zerlegbar
+Bsp 3: - keine Attribute, alles in Elementen und Datum zerlegt
+Bsp 4: - keine Kinderknoten mehr, alles in Attributen definiert, schwer lesbar
+
+Generelles Problem beim Verpacken von allen Daten ins Attribute:
+Irgendwann kein sinnvolle Kindknoten mehr bildbar. Schwer zu lesen und damit zu arbeiten. Sinvoll ist daher nur reine Datenverarbeitungshinweise als Attribute zu definieren, also keinen zu speichernden Daten selbst.
+
+Weitere Probleme mit Attributen (nach W3C):
+ * Attribute können keinen multiplen Werte enhalten (mehrere Kinderknoten)
+ * lassen sich schwer erweitern
+ * können keine Struktur beschreiben (verschachtelte Elemente/Kinderknoten)
+ * Attributen sind schwieriger per Programmcode zu ändern
+ * Attribute lassen sich nicht so einfach mit der vorgegebene DTD vergleichen
 
 ---
 
@@ -77,6 +121,13 @@ Ihre Einreichung wird automatisch auf Wohlgeformtheit überprüft.**
 * Namespace node (Namensraumknoten)
 * Processing instruction node (Verarbeitungsanweisungsknoten)
 * Comment node (Kommentarknoten)
+
+
+<!-- Wurzelknoten: Virtueller Elternknoten des Wurzelelements root -- >
+<root>
+  <element attribut="Das Attribut">Textknoten</element>
+  <element attribut="Anderes Attribut">weiterer Textknoten</element>
+</root>
 
       <?xml version="1.0" encoding="UTF-8"?>
       <EUROPA>
