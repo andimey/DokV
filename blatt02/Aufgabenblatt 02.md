@@ -109,6 +109,42 @@ Weitere Probleme mit Attributen (nach W3C):
 
 **Für die Einreichung und die Validierung im Web ist es u. U. nötig, dass Sie die DTD in das Dokument einbetten.**
 
+    <?xml version="1.0"?>
+    <!DOCTYPE thema[
+      <!ELEMENT thema (themensteller|titel|description)*>
+      <!ATTLIST thema
+        typ (BachelorThesis|MasterThesis|Praktika) #REQUIRED
+      >    
+      <!ELEMENT themensteller (#PCDATA)>
+      <!ELEMENT titel (#PCDATA)>
+      <!ELEMENT description (#PCDATA)>
+    ]>
+    <thema typ="MasterThesis">
+     <themensteller>Auszeichnung Fragensteller</themensteller>
+     <titel>Thementitel</titel>
+     <description>Themenbeschreibung</description>
+    </thema>
+
+Alternative:
+
+    <?xml version="1.0"?>
+    <!DOCTYPE topic[
+      <!ELEMENT topic (titel,topic,info)>
+      <!ATTLIST topic
+        typ CDATA #REQUIRED
+      >    
+      <!ELEMENT titel (#PCDATA)>
+      <!ELEMENT topic (#PCDATA)>
+      <!ELEMENT info (#PCDATA)>
+    ]>
+    <topic type="praktikum">
+     <title>Praktikum Entwicklung Motorsteuerung</title>
+     <author>Volkswagen</author>
+     <info>Anforderungen und Grundvoraussetzungen
+      Damit Sie bei Volkswagen ein Praktikum absolvieren können, müssen Sie an einer Hochschule immatrikuliert sein und dürfen Ihr Studium noch nicht abgeschlossen haben.
+      Ausgenommen hiervon ist selbstverständlich das Grundpraktikum, das für viele Studiengänge bereits vorab notwendig ist.</description>
+    </topic>
+
 ---
 
 ## Aufgabe 9
