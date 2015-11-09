@@ -127,23 +127,24 @@ Weitere Probleme mit Attributen (nach W3C):
 
 Alternative:
 
-    <?xml version="1.0"?>
-    <!DOCTYPE topic[
-      <!ELEMENT topic (titel,topic,info)>
-      <!ATTLIST topic
-        typ CDATA #REQUIRED
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE tender[
+      <!ELEMENT tender (topic,author,info)>
+      <!ATTLIST tender
+        type CDATA #REQUIRED
       >    
-      <!ELEMENT titel (#PCDATA)>
       <!ELEMENT topic (#PCDATA)>
+      <!ELEMENT author (#PCDATA)>
       <!ELEMENT info (#PCDATA)>
     ]>
-    <topic type="praktikum">
-     <title>Praktikum Entwicklung Motorsteuerung</title>
+    <tender type="praktikum">
+     <topic>Praktikum Entwicklung Motorsteuerung</topic>
      <author>Volkswagen</author>
      <info>Anforderungen und Grundvoraussetzungen
       Damit Sie bei Volkswagen ein Praktikum absolvieren können, müssen Sie an einer Hochschule immatrikuliert sein und dürfen Ihr Studium noch nicht abgeschlossen haben.
-      Ausgenommen hiervon ist selbstverständlich das Grundpraktikum, das für viele Studiengänge bereits vorab notwendig ist.</description>
-    </topic>
+      Ausgenommen hiervon ist selbstverständlich das Grundpraktikum, das für viele Studiengänge bereits vorab notwendig ist.
+      </info>
+    </tender>
 
 ---
 
