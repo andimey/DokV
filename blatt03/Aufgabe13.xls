@@ -25,11 +25,21 @@ Hinweis: Mit Hilfe von XSLT-Prozessoren wie Xalan kann man die Aufrufreihenfolge
 Stylesheet-Verarbeitung ausgeben lassen (hier mit der Option "-TT").
 b)Was passiert, wenn ein XSLT-Stylesheet keine Templat-Regeln beinhaltet? Wie sieht dann das Ergebnis aus?-->
 
-<xsl:template match="LANDKREISE">
-  <HTML>
-    <head><title> Landkreise:  </title></head>
-    <body>
-      <xsl:for-each select="LANDKREISE">
-    </body>
+<?xml version="1.0"?>
+<xsl:stylesheet version="1.0">
+  <xsl:template match="/land">
+    <HTML>
+      <head><title> Landkreise:  </title></head>
+      <body>
+        <xsl:for-each select="land">
+          <p>
+          <xsl:value-of select="kreis/name" /><br />
+          * <xsl:value-of select="name/@kfz" /><br />
+          * <xsl:value-of select="stadt/@kreis" /> (<xsl:value-of select="stadt/@breite" />, <xsl:value-of select="stadt/@laenge" />)<br />
+          </p>
+        <xsl:for-each>
+      </body>
 
-  </HTML>
+    </HTML>
+  </xsl:template>
+</xsl:stylesheet>
