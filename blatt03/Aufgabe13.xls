@@ -43,3 +43,60 @@ b)Was passiert, wenn ein XSLT-Stylesheet keine Templat-Regeln beinhaltet? Wie si
     </HTML>
   </xsl:template>
 </xsl:stylesheet>
+
+<!--
+a) Verarbeitung:
+* Ausgangspunkt: Ergebnisbaum entsteht aus Verarbeiten einer Liste, die zunächst nur den Wurzelknoten enthält
+* Eine Liste von Ursprungsknoten wird verarbeitet, indem die Strukturen des Ergebnisbaums beim Verarbeiten jedes
+Listenelements aneinandergehängt werden.
+* Ein Ursprungsknoten wird verarbeitet, indem alle Templat-Regeln bestimmt werden, die auf den Knoten passen,
+und von diesen die mit der höchsten Priorität ausgewählt wird. Das gewählte Templat wird instantiiert,
+wobei der Knoten aktueller Knoten wird und die Liste der Ursprungsknoten die aktuelle Knotenliste.
+* Ein Templat wird meist Instruktionen beinhalten, die weitere Ursprungsknoten zur Bearbeitung auswählen.
+* Der Prozess aus Match, Instantiierung und Selektion wird rekursiv fortgesetzt, bis keine neuen
+Ursprungsknoten mehr zur Verarbeitung anstehen.
+
+b)
+* Aussondern nach Importpräzedenz
+* Aussondern nach der im Attribut priority durch eine
+(Fliesskomma-)Zahl gesetzten Priorität
+* Priorität vom System bestimmt: Priorität eines Musters wird
+um so höher, je spezifischer es ist.
+
+Wird keine passende Template Rule gefunden, kommen so genannte implizite
+Regeln (Built-in Template Rules) zum Einsatz. Diese Regeln spezifizieren das
+Verhalten für alle unterschiedliche Knotentypen, falls keine expliziten Regeln im Stylesheet gefunden werden.
+
+Template für Elemente und die Dokumentwurzel
+
+<xsl:template match="* | /">
+  <xsl:apply-templates/>
+</xsl:template>
+
+Diese Regel besagt, dass alle Kindknoten des aktuellen Elements aufgerufen werden.
+Im Falle eines leeren Stylesheets führt dies zu einer Traversierung des Quelldokuments von der Wurzel bis zu den Blättern.
+Durch die Built-in Template Rule für Textknoten wird der Inhalt des Dokuments ohne Markup als Folge von Textknoten in
+Document Order ausgegeben. 
+
+Template für Elemente und Dokumentwurzel innerhalb eines Modus
+
+<xsl:template match="* | /" mode="m">
+  <xsl:apply-templates mode="m" />
+</xsl:template>
+
+Wie oben, der Modus m wird durchgereicht.
+
+Template für Character Data und Attributwerte
+
+<xsl:template match="text() | @*">
+  <xsl:value-of select="."/>
+</xsl:template>
+
+Die Regel "kopiert" den Wert des Character Data-Knotens oder des Attributs in das Zieldokuments.
+
+Template für Processing Instructions und Kommentare
+
+<xsl:template match="processing-instruction() | comment()"/>
+
+Dieses Template macht gar nichts. Processing Intructions und Kommentare werden also nicht ins Zieldokument übernommen.
+-->
