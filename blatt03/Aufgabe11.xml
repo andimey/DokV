@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE weatherforcast[
+  <!ELEMENT weatherforcast (weather)*>
+  <!ATTLIST weatherforcast
+    location CDATA #REQUIRED
+  >
+  <!ELEMENT weather (temp,sunhours,precprop,(details)*)>
+  <!ATTLIST weather
+    day (today|tomorrow|dayafter) #REQUIRED
+  >
+  <!ELEMENT temp (min,max)>
+  <!ELEMENT min (#PCDATA)>
+  <!ELEMENT max (#PCDATA)>
+  <!ELEMENT sunhours (#PCDATA)>
+  <!ELEMENT precprop (#PCDATA)>
+  <!ELEMENT details (wind, clouds, rain?)>
+  <!ATTLIST details
+    time (morning|afternoon|night) #REQUIRED
+  >
+  <!ELEMENT wind (dir, spd, gusts?)>
+  <!ELEMENT dir (#PCDATA)>
+  <!ELEMENT spd (#PCDATA)>
+  <!ELEMENT gusts (#PCDATA)>
+  <!ELEMENT clouds (#PCDATA)>
+  <!ELEMENT rain (#PCDATA)>
+]>
+<weatherforcast location="Magdeburg">
+ <weather day="today">
+   <temp>
+    <min>8</min>
+    <max>13</max>
+   </temp>
+   <sunhours>1</sunhours>
+   <precprop>80</precprop>
+   <details time="morning">
+     <wind>
+       <dir>180</dir>
+       <spd>2-3</spd>
+     </wind>
+     <clouds>broken</clouds>
+   </details>
+   <details time="afternoon">
+     <wind>
+       <dir>225</dir>
+       <spd>3</spd>
+     </wind>
+     <clouds>overcast</clouds>
+     <rain>light</rain>
+   </details>
+   <details time="night">
+     <wind>
+       <dir>270</dir>
+       <spd>4</spd>
+       <gusts>9</gusts>
+     </wind>
+     <clouds>broken</clouds>
+     <rain>medium</rain>
+   </details>
+ </weather>
+
+ <weather day="tomorrow">
+   <temp>
+    <min>6</min>
+    <max>9</max>
+   </temp>
+   <sunhours>4</sunhours>
+   <precprop>80</precprop>
+   <details time="morning">
+     <wind>
+       <dir>270</dir>
+       <spd>4-5</spd>
+       <gusts>7</gusts>
+     </wind>
+     <clouds>broken</clouds>
+   </details>
+   <details time="afternoon">
+     <wind>
+       <dir>270</dir>
+       <spd>4</spd>
+       <gusts>8</gusts>
+     </wind>
+     <clouds>overcast</clouds>
+     <rain>light</rain>
+   </details>
+   <details time="night">
+     <wind>
+       <dir>225</dir>
+       <spd>3</spd>
+     </wind>
+     <clouds>broken</clouds>
+     <rain>medium</rain>
+   </details>
+ </weather>
+
+ <weather day="dayafter">
+   <temp>
+    <min>7</min>
+    <max>11</max>
+   </temp>
+   <sunhours>0</sunhours>
+   <precprop>80</precprop>
+   <details time="morning">
+     <wind>
+       <dir>270</dir>
+       <spd>4</spd>
+     </wind>
+     <clouds>broken</clouds>
+     <rain>medium</rain>
+   </details>
+   <details time="afternoon">
+     <wind>
+       <dir>270</dir>
+       <spd>4-5</spd>
+     </wind>
+     <clouds>overcast</clouds>
+     <rain>medium</rain>
+   </details>
+   <details time="night">
+     <wind>
+       <dir>225</dir>
+       <spd>4</spd>
+     </wind>
+     <clouds>broken</clouds>
+     <rain>light</rain>
+   </details>
+ </weather>
+</weatherforcast>
