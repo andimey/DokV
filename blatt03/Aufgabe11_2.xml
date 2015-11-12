@@ -1,0 +1,165 @@
+<!--Aufgabe 11: Wettervorhersage
+
+Einreichungsfrist bis: 13.11.2015 08:00
+Unter http://www.wetteronline.de/Sachsen-Anhalt/Magdeburg.htm finden Sie die Wettervorhersage für Magdeburg für die nächsten drei Tage.
+a) Definieren Sie eine DTD, die Dokumente vom Typ weatherforecast beschreibt. Diese Beschreibung soll so präzise wie möglich sein.
+b) Schreiben Sie ein XML-Dokument, das die Informationen der aktuellen Wettervorhersage für Magdeburg enthält. Das Dokument soll
+hinsichtlich Ihrer in a) festgelegten DTD valide sein.-->
+
+<!DOCTYPE weatherforecast [
+<!ELEMENT weatherforecast (location, day*)>
+<!ELEMENT location (#PCDATA)>
+<!ELEMENT day (date, time, weather, daytimeforecarst)>
+<!ELEMENT date (day, month, year)>
+  <!Element day_ (#PCDATA)>
+  <!Element month (#PCDATA)>
+  <!Element year (#PCDATA)>
+<!ELEMENT time (#PCDATA)>
+<!ELEMENT daytimeforecarst (morning, noon, evening)>
+<!ELEMENT morning (forcarst)>
+<!ELEMENT noon (forcarst)>
+<!ELEMENT evening (forcarst)>
+<!ELEMENT forcarst (weather, wind, rainfall, sun)>
+  <!ELEMENT weather (temperature, rainProbability, hoursOfSun)>
+    <!ELEMENT temperature (max, min)>
+      <!ELEMENT max (#PCDATA)>
+      <!ELEMENT min (#PCDATA)>
+    <!ELEMENT rainProbability (probability, amount)>
+      <!ELEMENT probability (#PCDATA)>
+      <!ELEMENT amount (#PCDATA)>
+    <!ELEMENT hoursOfSun (hours, uv)>
+        <!ELEMENT hours (#PCDATA)>
+        <!ELEMENT uv (#PCDATA)>
+    <!ELEMENT wind (direction, speed)>
+      <!ELEMENT direction (#PCDATA)>
+      <!ELEMENT speed (#PCDATA)>
+    <!ELEMENT rainfall (rainProbability)>
+    <!ELEMENT sun (hoursOfSun)>
+<!ATTLIST location name  CDATA #REQUIRED>
+]>
+
+<?xml version="1.0" ?>
+ <!DOCTYPE weatherforecast SYSTEM "weatherforecast.dtd">
+ <weatherforecast>
+   <location>Magdeburg</location>
+   <day>
+     <date>
+       <day_>13</day_>
+       <month>11</month>
+       <year>2015</year>
+     </date>
+     <time>12:00</time>
+     <weather>
+       <temperature>
+         <max>14</max>
+         <min>9</min>
+       </temperature>
+       <rainProbability>
+         <probability>70</probability>
+         <amount>2-5</amount>
+       </rainProbability>
+       <hoursOfSun>
+         <hours>0</hours>
+         <uv>0</uv>
+       </hoursOfSun>
+    <daytimeforecarst>
+      <morning>
+        <weather>
+          <temperature>
+            <max>14</max>
+            <min>9</min>
+          </temperature>
+          <rainProbability>
+            <probability>70</probability>
+            <amount>2-5</amount>
+          </rainProbability>
+          <hoursOfSun>
+            <hours>0</hours>
+            <uv>0</uv>
+          </hoursOfSun>
+        </weather>
+        <wind>
+          <direction>Südwest</direction>
+          <speed>10-14</speed>
+        </wind>
+        <rainfall>
+          <rainProbability>
+            <probability>70</probability>
+            <amount>2-5</amount>
+          </rainProbability>
+        </rainfall>
+        <sun>
+          <hoursOfSun>
+            <hours>0</hours>
+            <uv>0</uv>
+          </hoursOfSun>
+        </sun>
+      </morning>
+      <noon>
+        <weather>
+          <temperature>
+            <max>14</max>
+            <min>9</min>
+          </temperature>
+          <rainProbability>
+              <probability>70</probability>
+              <amount>2-5</amount>
+          </rainProbability>
+            <hoursOfSun>
+              <hours>0</hours>
+              <uv>0</uv>
+            </hoursOfSun>
+          </weather>
+          <wind>
+            <direction>Südwest</direction>
+            <speed>10-14</speed>
+          </wind>
+          <rainfall>
+            <rainProbability>
+              <probability>70</probability>
+              <amount>2-5</amount>
+            </rainProbability>
+          </rainfall>
+          <sun>
+            <hoursOfSun>
+              <hours>0</hours>
+              <uv>0</uv>
+            </hoursOfSun>
+          </sun>
+      </noon>
+      <evening>
+        <weather>
+          <temperature>
+            <max>14</max>
+            <min>9</min>
+          </temperature>
+          <rainProbability>
+              <probability>70</probability>
+              <amount>2-5</amount>
+          </rainProbability>
+            <hoursOfSun>
+              <hours>0</hours>
+              <uv>0</uv>
+            </hoursOfSun>
+          </weather>
+          <wind>
+            <direction>Südwest</direction>
+            <speed>10-14</speed>
+          </wind>
+          <rainfall>
+            <rainProbability>
+              <probability>70</probability>
+              <amount>2-5</amount>
+            </rainProbability>
+          </rainfall>
+          <sun>
+            <hoursOfSun>
+              <hours>0</hours>
+              <uv>0</uv>
+            </hoursOfSun>
+          </sun>
+      </evening>
+
+    </daytimeforecarst>
+  </day>
+ </weatherforecast>
