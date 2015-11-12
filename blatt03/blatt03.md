@@ -30,6 +30,40 @@ Katrin Krieger, M.A.      Tel. +49 391 67 52510
 </name>
 ```
 
+*Quellen*
+* [Wikipedia](https://de.wikipedia.org/wiki/Verarbeitungsanweisung)
+* [xmlplease.com](http://www.xmlplease.com/xml/xmlname/pi)
+
 a) **Identifizieren Sie im obigen XML-Beispiel die Processing Instructions (PI)! Woraus bestehen PIs und wozu dienen sie?**
 
+PIs:
+```
+  <?xml-stylesheet type="text/xsl" href="businesscard.xsl"?>
+```
+
+```
+  <?html-signature ... ?>
+```
+
+keine PIs:
+
+```
+  <?xml version="1.0" encoding="UTF-8"?>
+```
+
+PIs bestehen aus :
+ * öffnendem "<?"
+ * Namen (Target)
+ * optinal: Datenteil
+ * schließendem "?>"
+
+ Sie werden verwendet um Instruktionen an die Applikation zu übermitteln.
+
+```
+  <?Name Daten?>
+```
+
 b) **Welche Einschränkungen gibt es bezüglich der Benennung des Targets? An welchen Stellen im Dokument dürfen PIs erscheinen?**
+
+ * Ohne (('X' | 'x') ('M' | 'm') ('L' | 'l') (offensichtlich auch kein ?)
+ * Dürfen an jeder Stelle nach dem Header erscheinen
