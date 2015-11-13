@@ -82,9 +82,11 @@ Schreiben Sie für die in Aufgabe 10 von Blatt 2 (Landkreise) erstellte XML-Date
 	Landkreis ...
 	...
 
-Wie wird das Stylesheet verarbeitet? In welcher Reihenfolge werden die einzelnen Template abgearbeitet?
-Hinweis: Mit Hilfe von XSLT-Prozessoren wie Xalan kann man die Aufrufreihenfolge der Template während der Stylesheet-Verarbeitung ausgeben lassen (hier mit der Option "-TT").
-Was passiert, wenn ein XSLT-Stylesheet keine Templat-Regeln beinhaltet? Wie sieht dann das Ergebnis aus?
+
+a) **Wie wird das Stylesheet verarbeitet? In welcher Reihenfolge werden die einzelnen Template abgearbeitet?
+Hinweis: Mit Hilfe von XSLT-Prozessoren wie Xalan kann man die Aufrufreihenfolge der Template während der Stylesheet-Verarbeitung ausgeben lassen (hier mit der Option "-TT").**
+
+ b) **Was passiert, wenn ein XSLT-Stylesheet keine Templat-Regeln beinhaltet? Wie sieht dann das Ergebnis aus?**
 
 
 	<xsl:stylesheet version="1.0"
@@ -111,5 +113,6 @@ Was passiert, wenn ein XSLT-Stylesheet keine Templat-Regeln beinhaltet? Wie sieh
 	    Templates werden abwechselnd, bzw. Je nach Auftreten kreis/stadt
 	angewandt
 	  b.
-	    Das Ergebnis sollte dann leer sein.
+	    Default Regeln werden angewendet:
+			- Inhalte in Dokumentordnung werden ausgegeben.
 	-->
