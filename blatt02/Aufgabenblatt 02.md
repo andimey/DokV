@@ -157,7 +157,7 @@ Alternative:
 * Processing instruction node (Verarbeitungsanweisungsknoten)
 * Comment node (Kommentarknoten)
 
-
+```
 <!-- Wurzelknoten: Virtueller Elternknoten des Wurzelelements root -- >
 <root>
   <element attribut="Das Attribut">Textknoten</element>
@@ -188,7 +188,7 @@ Alternative:
             <TEL-VORWAHL>0034</TEL-VORWAHL>
             </LAND>
       </EUROPA>
-
+```
 
 ---
 
@@ -205,7 +205,7 @@ Alternative:
     <!ATTLIST stadt breite CDATA #REQUIRED>
     <!ATTLIST stadt laenge CDATA #REQUIRED>
 
-Lösung:
+ausführliche, vollständige Lösung:
 [aufgabe10.xml](aufgabe10.xml)
 
     <land>
