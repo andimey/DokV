@@ -67,3 +67,49 @@ b) **Welche Einschränkungen gibt es bezüglich der Benennung des Targets? An we
 
  * Ohne (('X' | 'x') ('M' | 'm') ('L' | 'l') (offensichtlich auch kein ?)
  * Dürfen an jeder Stelle nach dem Header erscheinen
+
+---
+## Aufgabe 13: XLST-Verarbeitung
+Schreiben Sie für die in Aufgabe 10 von Blatt 2 (Landkreise) erstellte XML-Datei ein XSLT-Stylesheet, dass die Elemente der XML-Datei in eine HTML-Ausgabe umwandelt. Das HTML-Dokument soll wie folgt strukturiert werden:
+
+
+	Landkreise in Sachsen-Anhalt
+
+	Landkreis
+	* KFZ-Kennzeichen
+	* Kreisstadt (Längengrad, Beitengrad)
+
+	Landkreis ...
+	...
+
+Wie wird das Stylesheet verarbeitet? In welcher Reihenfolge werden die einzelnen Template abgearbeitet?
+Hinweis: Mit Hilfe von XSLT-Prozessoren wie Xalan kann man die Aufrufreihenfolge der Template während der Stylesheet-Verarbeitung ausgeben lassen (hier mit der Option "-TT").
+Was passiert, wenn ein XSLT-Stylesheet keine Templat-Regeln beinhaltet? Wie sieht dann das Ergebnis aus?
+
+
+	<xsl:stylesheet version="1.0"
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	  <xsl:output omit-xml-declaration="yes" indent="yes"/>
+
+	  <xsl:template match="/land/kreis">
+	    <h2><xsl:value-of select="name"/></h2>
+	    <ul>
+	      <li><xsl:value-of select="@kfz"/></li>
+	    </ul>
+	  </xsl:template>
+
+	  <xsl:template match="/land/stadt">
+	    <ul>
+	      <li><xsl:value-of select="name"/>(<xsl:value-of
+	select="@laenge"/>, <xsl:value-of select="@breite"/>)</li>
+	    </ul>
+	  </xsl:template>
+	</xsl:stylesheet>
+
+	<!--
+	  a.
+	    Templates werden abwechselnd, bzw. Je nach Auftreten kreis/stadt
+	angewandt
+	  b.
+	    Das Ergebnis sollte dann leer sein.
+	-->
