@@ -10,16 +10,20 @@ Ihre Einreichung wird automatisch auf Wohlgeformtheit überprüft.**
 ## Aufgabe 7
  **1. Wie werden laut XML-Spezifikation Attribute definiert und wie werden diese Attribute in einer DTD verwendet? Was sind ihre möglichen Werte und Bedeutungen?**
  (https://wiki.selfhtml.org/wiki/XML/DTD/Attribute_und_Wertzuweisungen)
- Attribute werden im Element Tag durch Bezeichnung und Wert in Anführungszeichen definiert:
-   <element attributname="attributwert">Text/Inhalt</element>
 
+ Attribute werden im Element Tag durch Bezeichnung und Wert in Anführungszeichen definiert:
+ ```
+   <element attributname="attributwert">Text/Inhalt</element>
+```
 in der DTD werden sie so definiert:
+
+```
   <!ELEMENT Elementname (Inhalt)>
   <!ATTLIST Elementname
      Attributname_1 Inhalt [#REQUIRED|#IMPLIED|#FIXED "Wert"|Defaultwert]
      Attributname_n Inhalt [#REQUIRED|#IMPLIED|#FIXED "Wert"|Defaultwert]
   >
-
+```
 
 
 
@@ -76,17 +80,12 @@ in der DTD werden sie so definiert:
     to="Tove" from="Jani" heading="Reminder"
     body="Don't forget me this weekend!">
     </note>
- * keine Kinderknoten mehr
+ * keine Baumstruktur mehr
  * alles in Attributen definiert -> schwer lesbar
 
 **Alle vier Beispiele enthalten exakt die gleichen Informationen. Diskutieren Sie die Vor- und Nachteile der Nutzung von Elementen und Attributen zur Datenhaltung in den vier Beispielen. Welche Probleme können auftreten, wenn Daten als Attribute gespeichert werden?**
 
 (http://www.w3schools.com/Xml/xml_dtd_el_vs_attr.asp)
-
-Bsp 1: - Datum als Attribut, sonst alles in Elementen u.U. nicht eindeutig in Bestandteile zerlegbar (reihenfolge Monat Tag)
-Bsp 2: - keine Attribute, alles in Elementen aber Datum u.U. nicht eindeutig in Bestandteile zerlegbar
-Bsp 3: - keine Attribute, alles in Elementen und Datum zerlegt
-Bsp 4: - keine Kinderknoten mehr, alles in Attributen definiert, schwer lesbar
 
 Generelles Problem beim Verpacken von allen Daten ins Attribute:
 Irgendwann kein sinnvolle Kindknoten mehr bildbar. Schwer zu lesen und damit zu arbeiten. Sinvoll ist daher nur reine Datenverarbeitungshinweise als Attribute zu definieren, also keinen zu speichernden Daten selbst.
