@@ -54,7 +54,7 @@ keine PIs:
 PIs bestehen aus :
  * öffnendem "<?"
  * Namen (Target)
- * optinal: Datenteil
+ * optional: Datenteil
  * schließendem "?>"
 
  Sie werden verwendet um Instruktionen an die Applikation zu übermitteln.
