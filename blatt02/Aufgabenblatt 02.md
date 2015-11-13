@@ -3,8 +3,7 @@
 **Ändern Sie die hinterlegte XML-Datei so ab, dass sie den Regeln für wohlgeformte XML-Dokumente (XML wellformedness rules) genügt.
 Ihre Einreichung wird automatisch auf Wohlgeformtheit überprüft.**
 
-[Document](notwellformed.xml)
-[Document](notwellformed2.xml)
+ * [Document wohlgeformt](notwellformed2.xml)
 
 ---
 
