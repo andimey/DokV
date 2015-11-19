@@ -68,6 +68,7 @@
       </xsl:template>
   </xsl:stylesheet>
 ```
+* `<xsl:template match="track">` Suche nach einem Match "track"
 * `<xsl:value-of select="."/>` Ausgabe des aktuellen Taginhaltes
 
 ---
@@ -116,6 +117,7 @@ Jackson Browne Late for the sky Late for the sky Fountain of sorrow Farther on T
     </xsl:template>
 </xsl:stylesheet>
 ```
+* `<xsl:apply-templates select="//track"/>` Suche nach einem Match in der 3. Ebende unter dem root-Verzeichnis
 * Ausgabe:
 Late for the skyFountain of sorrowFarther onThe late showThe road and the skyFor a dancerWalking slowBefore the deluge
 
@@ -149,5 +151,6 @@ Late for the skyFountain of sorrowFarther onThe late showThe road and the skyFor
     </xsl:template>
 </xsl:stylesheet>
 ```
+* `<xsl:apply-templates />` Das Node Set wird Element für Element abgearbeitet und jeweils eine entsprechende Template Rule gesucht. Dabei wird das aktuelle Element im Node Set zum Current Node des Prozesses.
 * Ausgabe:
 Jackson Browne Late for the sky Late for the sky Fountain of sorrow Farther on The late show The road and the sky For a dancer Walking slow Before the deluge Elektra/Asylum 1974 32.18
