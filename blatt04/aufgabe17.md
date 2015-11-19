@@ -68,6 +68,7 @@
       </xsl:template>
   </xsl:stylesheet>
 ```
+* `<xsl:value-of select="."/>` Ausgabe des aktuellen Taginhaltes
 
 ---
 
@@ -115,6 +116,8 @@ Jackson Browne Late for the sky Late for the sky Fountain of sorrow Farther on T
     </xsl:template>
 </xsl:stylesheet>
 ```
+* Ausgabe:
+Late for the skyFountain of sorrowFarther onThe late showThe road and the skyFor a dancerWalking slowBefore the deluge
 
 ---
 ```
@@ -130,6 +133,8 @@ Jackson Browne Late for the sky Late for the sky Fountain of sorrow Farther on T
     </xsl:template>
 </xsl:stylesheet>
 ```
+* Ausgabe:
+Late for the skyFountain of sorrowFarther onThe late showThe road and the skyFor a dancerWalking slowBefore the deluge Jackson Browne Late for the sky Late for the sky Fountain of sorrow Farther on The late show The road and the sky For a dancer Walking slow Before the deluge Elektra/Asylum 1974 32.18
 
 ---
 ```
@@ -144,3 +149,5 @@ Jackson Browne Late for the sky Late for the sky Fountain of sorrow Farther on T
     </xsl:template>
 </xsl:stylesheet>
 ```
+* Ausgabe:
+Jackson Browne Late for the sky Late for the sky Fountain of sorrow Farther on The late show The road and the sky For a dancer Walking slow Before the deluge Elektra/Asylum 1974 32.18
