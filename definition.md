@@ -74,6 +74,28 @@
 
 ## XSLT Verarbeitung
 *Ziel:* Baumstrukturen in Baumstrukturen umwandeln.
+
 ### Templates
 * Werden für gewöhnlich nach Import Reihenfolge gewichtet
 * Manuelle Gewichtung möglich
+
+#### default templates
+Werden aufgerufen wenn im Stylesheet selbst kein template anzuwenden ist.
+ * default Template für Elementknoten:
+  * ruft Templates für die Kinderknoten auf
+ * default Template für Attribute:
+  *
+
+### Zeichen
+* **```//knotenname``` = ```descendants::knotenname```**
+
+  Alle Nachfahren des Typs 'knotenname' vom aktuellen Knoten aus
+
+* ```*//knotenname```
+* ```.``` Der aktuelle Standpunkt (ich inklusive)
+* ```*``` Alle Kinder (ich exklusive)
+
+### ! Sprachmittel um Iterationen und Verzweigungen in XLST zu realisieren
+
+ * ```<xsl:if test="XPATH AUSDRÜCKE"></xsl:if>```
+ *
