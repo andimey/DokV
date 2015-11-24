@@ -1,0 +1,38 @@
+<!--
+a) Die Fibonacci-Folge ist eine mathematische Folge von positiven ganzen Zahlen, den Fibonacci-Zahlen. Jede Zahl ist dabei die Summe der zwei vorangehenden Zahlen::
+
+  0, 1, 1, 2, 3, 5, 8, 13, 21, ...
+
+Allgemein können die Fibonacci-Zahlen wie folgt definiert werden:
+         / 0                                für n = 0
+Fib(n) = |  1                               für n = 1
+         \ Fib(n - 1) + Fib(n - 2)  	    sonst
+Implementieren Sie die Funktion Fib(n) als XSLT-Template. Verwenden Sie die vorgegebene Antwortvorlage.
+
+b)Ein schnellerer Weg, die Fibonacci-Zahlen zu berechnen, basiert auf der Idee, gleich zwei aufeinanderfolgende Werte als Ergebnis der Funktion zurückzugeben:
+    fibPair n = (fib n, fib (n+1))
+Aus einem Wertepaar (u,v) ergibt sich das nachfolgende Paar als (v, u+v) über fibStep:
+    fibStep (u,v) = (v, u+v)
+Damit ist dann eine Funktion fibPair definierbar als:
+    fibPair (0) = (0,1)
+    fibPair (n) = fibStep(fibPair (n-1))
+Schließlich kann die Fibonacci-Zahl n effizient berechnet werden mit:
+    fastFib n = first ( fibPair n)
+(first gibt dabei das erste Element des Tupels zurück.)
+
+Inmplementieren Sie die Funktion fastFib (und benötigte Hilfsfunktionen) als XSLT-Template.
+-->
+<?xml version="1.0"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  version="1.0">
+
+  <xsl:output method="text"/>
+
+  <xsl:template match="/input">
+    <xsl:for-each select="args">
+      <xsl:call-template name="Fib">
+        <xsl:with-param name="x" select="x"/>
+      </xsl:call-template>
+      <xsl:text>&#x0a;</xsl:text>
+    </xsl:for-each>
+  </xsl:template>

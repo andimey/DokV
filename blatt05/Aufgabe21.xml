@@ -1,0 +1,27 @@
+<!--
+Schreiben Sie eine XSLT-Transformation 2.0 die mittels des Euklidschen
+Algorithmus den größten gemeinsamen Teiler zweiter positiver Ganzzahlen
+errechnet und als XML-Dokument ausgibt. Die notwendige Eingabe habe dabei folgendes Format:
+<ggT>
+   <input>
+      <n1>18</n1>
+      <n2>6</n2>
+   </input>
+</ggT>
+
+Das Ergebnis soll nach der Transformation dann in umschließenden
+<result>-Tags ausgegeben werden. Die Funktion selbst soll mit Hilfe
+des XSLT 2.0-Elements <xsl:function> realisiert werden.
+-->
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+	ggT (n1:positiveInteger, number2:positiveInteger)
+-->
+<xsl:stylesheet version="2.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transforms">
+
+<xsl:output method="xml" />
+
+.....
+
+</xsl:stylesheet>
