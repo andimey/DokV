@@ -73,7 +73,7 @@
  ```
 
 ## XSLT Verarbeitung
-*Ziel:* Baumstrukturen in Baumstrukturen umwandeln.
+*Ziel:* XML-Baumstrukturen in Baumstrukturen umwandeln.
 
 ### Templates
 * Werden für gewöhnlich nach Import Reihenfolge gewichtet
