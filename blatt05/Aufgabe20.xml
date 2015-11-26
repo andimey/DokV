@@ -1,29 +1,8 @@
-<!--
-Aus AuD ist Ihnen wahrscheinlich auch die Ackermann-Funktion bekannt. Sie lässt sich wie folgt definieren:
-  A(0, y) := y + 1
-  A(x, 0) := A(x - 1, 1)
-  A(x, y) := A(x - 1, A(x, y - 1))
-
-Implementieren Sie die Ackermann-Funktion als XSLT-Template. Verwenden Sie dafür den vorgegebenen Rahmen.
-
-Wie lange benötigt Ihr XSLT-Prozessor (welcher?) auf Ihrem Rechner (was für einer?) für die Berechnung von A(3, 5)?
--->
-<?xml version="1.0"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  version="1.0">
-
-  <xsl:output method="text"/>
-
-  <xsl:template match="/input">
-    <xsl:for-each select="args">
-      <xsl:call-template name="A">
-        <xsl:with-param name="x" select="x"/>
-        <xsl:with-param name="y" select="y"/>
-      </xsl:call-template>
-      <xsl:text>&#x0a;</xsl:text>
-    </xsl:for-each>
-  </xsl:template>
-
-  <!-- Fügen Sie hier Ihr Template ein -->
-
-</xsl:stylesheet>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="Aufgabe20.xsl"?>
+<input>
+  <args>
+    <x>3</x>
+    <y>5</y>
+  </args>
+</input>
