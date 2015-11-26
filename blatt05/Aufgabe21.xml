@@ -16,6 +16,7 @@ Das Ergebnis soll nach der Transformation dann in umschließenden
 des XSLT 2.0-Elements <xsl:function> realisiert werden.
 -->
 <?xml version="1.0" encoding="UTF-8" ?>
+<xsl:output methode="xml"/>
 
 <xsl:variable name="ggt">
     <input>
