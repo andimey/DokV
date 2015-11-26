@@ -29,15 +29,32 @@ des XSLT 2.0-Elements <xsl:function> realisiert werden.
 	</xsl:call-template>
 </xsl:template>
 
-<xsl:function name="fun:ggt(num1,num2)">
-	<xsl:when test="($num1=0)or(%num2=0)">
+<xsl:function name="ggt">
+  <xsl:param name="num1"/>
+  <xsl:param name="num2"/>
+  <xsl:choose>
+	   <xsl:when test="($num1=0)or($num2=0)">
 		<result>
 			<xsl:value-of select="$num2"/>
 		</result>
 	</xsl:when>
 		<xsl:otherwise>
-	<xsl:value-of select="fun:ggt(num2,$num1 mod $num2)"/>
-	</xsl:otherwise>
+      <xsl:variable name="rest" select="$num1 mod $num2"/>
+      <xsl:choose>
+        <xsl:when test="$rest=0">
+          <result>
+            <xsl:value-of select="$num2"/>
+          </result>
+        <xsl:when>
+        <xsl:otherwise>
+          <xsl:call-template name="ggt">
+            <xsl:with-param name="num1" select="$num2"/>
+            <xsl:with-param name="num2" select="$rest"/>
+          </xsl:call-template>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:function>
 
 </xsl:stylesheet>

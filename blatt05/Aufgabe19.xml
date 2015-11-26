@@ -22,6 +22,9 @@ Schließlich kann die Fibonacci-Zahl n effizient berechnet werden mit:
 
 Inmplementieren Sie die Funktion fastFib (und benötigte Hilfsfunktionen) als XSLT-Template.
 -->
+
+<!-- Quelle: https://searchcode.com/codesearch/view/53897188/ -->
+
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   version="1.0">
@@ -36,3 +39,24 @@ Inmplementieren Sie die Funktion fastFib (und benötigte Hilfsfunktionen) als XS
       <xsl:text>&#x0a;</xsl:text>
     </xsl:for-each>
   </xsl:template>
+
+<!-- a) -->
+  <xsl:template name="Fib">
+    <xsl:param name="current" select="0"/>
+    <xsl:param name="next" select="0"/>
+    <xsl:param name="remaining" select="0"/>
+    <xsl:choose>
+      <xsl:when test="$remaining = 0">
+        <xsl:value-of select="$current"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="Fib">
+          <xsl:with-param name="current" select="$next"/>
+          <xsl:with-param name="next" select="$current + $next"/>
+          <xsl:with-param name="remaining" select="$remaining - 1"/>
+        </xsl:call-template>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+<!-- b) nicht wirklich verstanden -->
