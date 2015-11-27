@@ -1,67 +1,28 @@
-<!--
-XSLT: Pythagoreische Tripel
-
-Als pythagoreische Tripel werden jene drei Zahlen (x,y,z) bezeichnet, die die Formel x^2 + y^2 = z^2 erfüllen.
-
-Schreiben Sie eine XSLT-Datei, die für den XML-Input
-
 <?xml version="1.0" encoding="UTF-8"?>
-<pythago>
-	<limit>100</limit>
-</pythago>
-eine XML-Datei erzeugt, die alle pythagoreischen Tripel bis zum angegeben Limit (z=Limit) erzeugt. Der Ouput soll wie folgt aussehen:
-<?xml version="1.0" encoding="UTF-8"?>
-<pythagTriples>
-    <pTriple>
-        <x>3</x>
-        <y>4</y>
-        <z>5</z>
-    </pTriple>
-    ...
-</pythagTriples>
-Auch diese Transformation soll mit Hilfe von xsl:function realisiert werden.
+<!-- Algorithmus von http://snipplr.com/view/5170/pythagorean-triples-generator/ in XLST überführt -->
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:dokv="http://google.de" version="2.0">
+<xsl:output method="xml" />
 
-(Ihre Einreichung wird auf Wohlgeformtheit überprüft.)
--->
-
-<xsl:stylesheet version="2.0">
-
-<xsl:variable name="tripel">
-    <input>
-        <x>1</x>
-        <y>2</y>
-		<limit>100</limit>
-    </input>
-</xsl:variable>
-
-<xsl:template match="input">
-	<xsl:call-template name="fun:tripel(x,y)">
-	</xsl:call-template>
+<xsl:template match="/pythago">
+  <param name="x">
+    <xsl:value-of select="/pythago/limit">
+  </param>
+	<xsl:value-of name="dokv:getTripel($x,1)" />
 </xsl:template>
 
 
-<xsl:function name="fun:tripel(x1,y1)">
-	<xsl:param mane="a"/>
-	<xsl:param mane="b"/>
-	<xsl:param mane="c"/>
-	<xsl:when test="($x1=0)or(%y1=0)">
-		<result>
-			<xsl:text>error</xsl:text>
-		</result>
+<xsl:function name="dokv:getTripel">
+	<xsl:param name="limit"/>
+	<xsl:param name="m"/>
+
+  <xsl:when test="m &lt;limit"/>
+    <pTriple>
+        <x><xsl:value-of select="$m *2 +1"></x>
+        <y><xsl:value-of select="$m *2 * ($m +1)"></y>
+        <z><xsl:value-of select="($m *2) * ($m +1) +1"></z>
+    </pTriple>
+    <xsl:value-of name="dokv:getTripel($limit, $m +1)" />
 	</xsl:when>
-<xsl:when>
-	<xsl:if test="a&lt;limit"/>
-				<xsl:value-of select="fun:tripel(a=x1^2-y1^2)"/>
-				<xsl:value-of select="fun:tripel(b=2*x1*y1)"/>
-				<xsl:value-of select="fun:tripel(c=x1^2+y1^2)"/>
-		</xsl:when>
-<otherwise>
-	<xsl:if test="a&gt;limit"/>
-		<result>
-			<xsl:value-of select="a"/>
-			<xsl:value-of select="b"/>
-			<xsl:value-of select="c"/>
-		</result>
-		</otherwise>
 </xsl:function>
+
 </xsl:stylesheet>
