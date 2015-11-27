@@ -98,4 +98,34 @@ Werden aufgerufen wenn im Stylesheet selbst kein template anzuwenden ist.
 ### ! Sprachmittel um Iterationen und Verzweigungen in XLST zu realisieren
 
  * ```<xsl:if test="XPATH AUSDRÜCKE"></xsl:if>```
- *
+
+## XPath
+Navigieren und Knotenmengen lokalisieren
+Verwendung z.B. in match-Attributen
+
+### Funktionen
+
+### Filter
+in Eckigen Klammern
+* test="3" prüfte bisher die Position
+* Multiple Filter - Reihenfolge ausschlaggebend!
+ * ```//KIND[2][PERSON/KIND] ``` - beliebiges 2. Kind hat auch Kinder
+ * ```//KIND[PERSON/KIND][2] ``` - von den beliebigen Kindern mit eigenen Kindern der Zweite
+
+### Attributwert
+werden mit geschweiften Klammern ```<element att="{$attname}">```
+
+## XQuery
+(htto://stylusstudio.com/xquery_primer.html)
+(Abfrage Sprache für XML, wie SQL für DB-Tabellen)
+* verwendet XPath ausdrücke
+
+### FLWOR
+#### Klauseln:
+  * for
+  * let
+  *
+  * Order
+  *
+#### Kommentare
+  * ```(: Kommentar Text :)```
