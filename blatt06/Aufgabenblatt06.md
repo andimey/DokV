@@ -28,22 +28,36 @@
 ## XPath-Ausdrücke (2)
 **Gegeben ist die XML-Datei personen.xml. Geben Sie jeweils einen XPath-Ausdruck an, um die folgenden Knoten zu selektieren:**
 
-1. **alle <person>-Knoten,**
-2. **alle <name>-Knoten,**
+1. **alle ```<person>```-Knoten,**
+
+ //person
+
+2. **alle ```<name>```-Knoten,**
+
+ //name
 
 3. **die Person mit id="EMP02",**
 
+ //person [@id='EMP02']
+
 4. **alle Personen mit Familien-Name: "Chan",**
+
+ //person/name[family='Chan']/given
 
 5. **alle Personen mit Familienname "Chan" oder mit dem Vornamen "Ho" ,**
 
-6. **alle Personen mit einem oder mehreren <subordinate>-Knoten (ohne Benutzung der Funktion count),**
+6. **alle Personen mit einem oder mehreren ```<subordinate>```-Knoten (ohne Benutzung der Funktion count),**
 
-7. **alle Personen ohne Angaben zu <subordinate> (ohne Benutzung der Funktion count),**
+ //person/name[family='Chan'']/given[given='Ho']
+
+7. **alle Personen ohne Angaben zu ```<subordinate>``` (ohne Benutzung der Funktion count),**
+
 
 8. **die Personen-Knoten der Manager von Angestellten, deren Familienname "Law" ist,**
 
 9. **alle Personen, deren Gehalt mehr als 6000 $ beträgt,**
+
+ //person[salary>6000]
 
 10. **die Personenknoten der Manager der zuvor in 9.) selektierten Personen.**
 
@@ -75,9 +89,17 @@
 ```
 **Geben Sie XPath-Ausdrücke für die folgenden Knotenmengen oder Attributwerte an. Die Ausdrücke sollen für beliebige Dokumente gelten, nicht nur für das Beispieldokument.**
 1. **alle Kommentarknoten im gesamten Dokument**
+
+ //comment()
 2. **ausgehend von einem Elementknoten vom Typ Aufnahme den Attributknoten mit dem Nachnamen des zugehörigen Komponisten**
+
+ //komponist/@nachname |
 3. **die Namen (Attributwert) von allen im Dokument vorkommenden Orchestern**
+
+ //@orchester
 4. **alle Stücke (Elementknoten) von Bach in "E-dur"**
+
+ //komponist[@nachname='Bach']/stueck[@tonart="E-dur"]
 
 ---
 ## Yet another XPath exercise
@@ -96,6 +118,8 @@
  ```
 * **Welche Knotenmengen werden selektiert durch folgende XPath-Ausdrücke:**
  1. **/Auftraege/Auftrag/PC**
+
+   ``<PC>pc500</PC>; <PC>pc600</PC>``
  2. **//Kunde/.././***
  3. **/Auftraege/Auftrag[Kunde='Meier']**
  4. **/Auftraege/Auftrag[Kunde[.='Meier']/..]**

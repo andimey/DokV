@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+
+<personnel>
+
+  <person id="EMP01" >
+    <name><family>Lee</family><given>Ho</given></name>
+    <email>lee.ho@foo.com</email>
+    <salary>100000</salary>
+    <links>
+      <subordinate>EMP02</subordinate>
+      <subordinate>EMP03</subordinate>
+    </links>
+  </person>
+
+  <person id="EMP02">
+    <name><family>Chan</family><given>Tai Man</given></name>
+    <email>chan.tai.man@foo.com</email>
+    <salary>20000</salary>
+    <links>
+      <manager>EMP01</manager>
+      <subordinate>EMP04</subordinate>
+      <subordinate>EMP05</subordinate>
+    </links>
+  </person>
+
+  <person id="EMP03">
+    <name><family>Cheung</family><given>Siu Fan</given></name>
+    <email>cheung.siu.fan@foo.com</email>
+    <salary>20200</salary>
+    <links>
+      <manager>EMP01</manager>
+      <subordinate>EMP07</subordinate>
+    </links>
+  </person>
+
+  <person id="EMP04">
+    <name><family>Ng</family><given>Ho</given></name>
+    <email>ng.ho@foo.com</email>
+    <salary>11000</salary>
+    <links>
+      <manager>EMP02</manager>
+    </links>
+  </person>
+
+  <person id="EMP05">
+    <name><family>Chow</family><given>Sing Sing</given></name>
+    <email>chow.sing.sing@foo.com</email>
+    <salary>20050</salary>
+    <links>
+      <manager>EMP02</manager>
+      <subordinate>EMP06</subordinate>
+    </links>
+  </person>
+
+  <person id="EMP06">
+    <name><family>Law</family><given>Lai</given></name>
+    <email>law.lai@foo.com</email>
+    <salary>5050</salary>
+    <links>
+      <manager>EMP05</manager>
+    </links>
+  </person>
+
+  <person id="EMP07">
+    <name><family>Chan</family><given>Siu Ming</given></name>
+    <email>chan.siu.ming@foo.com</email>
+    <salary>5000</salary>
+    <links>
+      <manager>EMP03</manager>
+    </links>
+  </person>
+
+</personnel>
+
+
