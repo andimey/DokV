@@ -66,7 +66,7 @@
 
 5. **alle Personen mit Familienname "Chan" oder mit dem Vornamen "Ho" ,**
 
- ``//person/name[family='Chan'']/given[given='Ho']``
+ ``//person[./name/family = 'Chan' | ./name/given = 'Ho']``
 
 6. **alle Personen mit einem oder mehreren ```<subordinate>```-Knoten (ohne Benutzung der Funktion count),**
 
@@ -78,8 +78,8 @@
 
 8. **die Personen-Knoten der Manager von Angestellten, deren Familienname "Law" ist,**
 
- ``//manager/ancestor::name[family='Law']``
- -->keine Ahnung ob es geht
+ ``//person[./name/family='Law' and @id=//manager]``
+ -->kein Manager namens Law , aber für Lee erfoglreich getestet:D
 
 9. **alle Personen, deren Gehalt mehr als 6000 $ beträgt,**
 
@@ -89,6 +89,8 @@
 
  ``//manager/ancestor::person[salary>6000]``
  -->???
+
+  ``//person[@id=//manager and salary>6000]``
 
 ---
 ## XPath und Musik
