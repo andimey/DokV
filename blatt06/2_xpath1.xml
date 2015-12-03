@@ -1,0 +1,43 @@
+<Publications>
+  <Proceedings>
+    <Conference>VLDB</Conference>
+    <Year>1999</Year>
+    <Location>Edinburgh</Location>
+    <Article id="A1">
+      <Title>Query Optimization for XML</Title>
+      <Author>
+        <Firstname>Jason</Firstname>
+        <Surname>McHugh</Surname>
+      </Author>
+      <Author>
+        <Firstname>Jennifer</Firstname>
+        <Surname>Widom</Surname>
+      </Author>
+    </Article>
+  </Proceedings>
+  <Proceedings>
+    <Conference>ICDT</Conference>
+    <Year>1997</Year>
+    <Article id="A2">
+      <Title>Querying Semi-Structured Data</Title>
+      <Author>
+        <Firstname>Serge</Firstname>
+        <Surname>Abiteboul</Surname>
+      </Author>
+  </Proceedings>
+  <Proceedings>
+    <Conference>ICDE</Conference>
+    <Year>1998</Year>
+    <Article id="A3" Reference="A2">
+      <Title>Optimization Regular Path Expressins Using Graph Schemes</Title>
+      <Author>
+        <Firstname>Mary F.</Firstname>
+        <Surname>Fernandez</Surname>
+      </Author>
+      <Author>
+        <Firstname>Dan</Firstname>
+        <Surname>Suciu</Surname>
+      </Author>
+    </Article>
+  </Proceedings>
+</Publications>
