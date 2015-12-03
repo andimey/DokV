@@ -8,10 +8,10 @@
 | :-----------: | :--------------------: | :---------: |
 |      8        |      p                 |    10,13    |
 |     18        |	ancestor-or-self::sect |  18,14,8,1  |
-|     14        |  	.//*                 |
-|      3        |	../..//sect/title      |
-|     15        |	preceding::em |
-|      7        |	//fig        |
+|     14        |  	.//*                 | 14,15,16,17,18,19,20,21 |
+|      3        |	../..//sect/title      |    9,14     |
+|     15        |	preceding::em          |   12,5,6    |
+|      7        |	//fig                  |      -      |
 
 ---
 ## XPath-Ausdrücke (1)
@@ -19,11 +19,13 @@
 ![tree-1.png](tree-1.png)
 **Geben Sie jeweils einen XPath-Ausdruck an, um die folgenden Knoten zu selektieren:**
 1. **Die Autoren des ersten Artikels.**
- ``/Publications/Proceedings/Artical[1]/Autor/*``
+ ``/Publications/Proceedings/Article[1]/Autor``
 2. **Die Konferenzen, bei der der Autor mit dem Nachnamen Suciu publiziert hat.**
 ``.//Conference[]``
 3. **Alle Proceedings, bei denen Artikel mit mehr als einem Autor publiziert wurden.**
+``//Proceedings[(Autor)&gt 1]``
 4. **Die Artikel, die sich auf den Artikel mit der ID 'A2' beziehen.**
+
 5. **Die Titel und jeweils der Nachname des ersten Autors aller Artikel.**
 
 ---
