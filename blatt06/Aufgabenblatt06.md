@@ -23,9 +23,9 @@
 2. **Die Konferenzen, bei der der Autor mit dem Nachnamen Suciu publiziert hat.**
 ``.//Conference[]``
 3. **Alle Proceedings, bei denen Artikel mit mehr als einem Autor publiziert wurden.**
-``//Proceedings[(Autor)&gt 1]``
+``//Proceedings[(Autor)&gt 1]`` //nicht ganz sicher
 4. **Die Artikel, die sich auf den Artikel mit der ID 'A2' beziehen.**
-
+``//Article[@id='A2']``
 5. **Die Titel und jeweils der Nachname des ersten Autors aller Artikel.**
 
 ---
@@ -58,15 +58,21 @@
 
 7. **alle Personen ohne Angaben zu ```<subordinate>``` (ohne Benutzung der Funktion count),**
 
- //links
+ //links[not(subordinate)=1]/ancestor::person
 
 8. **die Personen-Knoten der Manager von Angestellten, deren Familienname "Law" ist,**
+
+ //manager/ancestor::name[family='Law']
+ -->keine Ahnung ob es geht
 
 9. **alle Personen, deren Gehalt mehr als 6000 $ beträgt,**
 
  //person[salary>6000]
 
 10. **die Personenknoten der Manager der zuvor in 9.) selektierten Personen.**
+
+ //manager/ancestor::person[salary>6000]
+ -->???
 
 ---
 ## XPath und Musik
@@ -100,7 +106,8 @@
  //comment()
 2. **ausgehend von einem Elementknoten vom Typ Aufnahme den Attributknoten mit dem Nachnamen des zugehörigen Komponisten**
 
- //komponist/@nachname |
+ //komponist/@nachname
+ --> Zweifel: finden des Elementknotens 'Aufnahme'
 3. **die Namen (Attributwert) von allen im Dokument vorkommenden Orchestern**
 
  //@orchester
