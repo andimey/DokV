@@ -24,7 +24,7 @@ var x=loadXMLDoc("2_xpath1.xml");
 var xml=x.responseXML;
 
 //Path Expression hier rein:
-path="//*";
+path="//Conference[../Article/Author/Surname = 'Suciu']";
 
 // code for IE
 if (window.ActiveXObject || xhttp.responseType=="msxml-document")
@@ -46,6 +46,7 @@ var result=nodes.iterateNext();
 
 while (result)
   {
+  document.write(result.childNodes[0].nodeName);
   document.write(result.childNodes[0].nodeValue);
   document.write("<br>");
   result=nodes.iterateNext();
