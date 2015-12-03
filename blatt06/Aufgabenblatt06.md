@@ -4,12 +4,12 @@
 ![Tree](xml-tree.jpg)
 **Geben Sie die Knotenmengen an, die folgende XPath-Ausdrücke mit den jeweils angegebenen Kontextknoten ermitteln. Achten Sie dabei auch auf die richtige Reihenfolge auf der jeweiligen Achse.**
 
-| Kontextknoten |	Pfadausdruck |
-| :-----------: | :----------: |
-|      8        |      p       |
-|     18        |	ancestor-or-self::sect |
-|     14        |  	.//*       |
-|      3        |	../..//sect/title |
+| Kontextknoten |	Pfadausdruck           | Knotenmenge |
+| :-----------: | :--------------------: | :---------: |
+|      8        |      p                 |    10,13    |
+|     18        |	ancestor-or-self::sect |  18,14,8,1  |
+|     14        |  	.//*                 |
+|      3        |	../..//sect/title      |
 |     15        |	preceding::em |
 |      7        |	//fig        |
 
@@ -19,7 +19,9 @@
 ![tree-1.png](tree-1.png)
 **Geben Sie jeweils einen XPath-Ausdruck an, um die folgenden Knoten zu selektieren:**
 1. **Die Autoren des ersten Artikels.**
+ ``/Publications/Proceedings/Artical[1]/Autor/*``
 2. **Die Konferenzen, bei der der Autor mit dem Nachnamen Suciu publiziert hat.**
+``.//Conference[]``
 3. **Alle Proceedings, bei denen Artikel mit mehr als einem Autor publiziert wurden.**
 4. **Die Artikel, die sich auf den Artikel mit der ID 'A2' beziehen.**
 5. **Die Titel und jeweils der Nachname des ersten Autors aller Artikel.**
@@ -46,12 +48,15 @@
 
 5. **alle Personen mit Familienname "Chan" oder mit dem Vornamen "Ho" ,**
 
+ //person/name[family='Chan'']/given[given='Ho']
+
 6. **alle Personen mit einem oder mehreren ```<subordinate>```-Knoten (ohne Benutzung der Funktion count),**
 
- //person/name[family='Chan'']/given[given='Ho']
+ //links[(subordinate)!=0]/ancestor::person
 
 7. **alle Personen ohne Angaben zu ```<subordinate>``` (ohne Benutzung der Funktion count),**
 
+ //links
 
 8. **die Personen-Knoten der Manager von Angestellten, deren Familienname "Law" ist,**
 
@@ -120,16 +125,61 @@
  1. **/Auftraege/Auftrag/PC**
 
    ``<PC>pc500</PC>; <PC>pc600</PC>``
+
  2. **//Kunde/.././***
+
+   ``<Kunde>Meier</Kunde>; <PC>pc500</PC>; <Kunde>Reich</Kunde>; <PC>pc600</PC>``
+
  3. **/Auftraege/Auftrag[Kunde='Meier']**
+
+   ``<Kunde>Meier</Kunde>; <PC>pc500</PC>``
+
  4. **/Auftraege/Auftrag[Kunde[.='Meier']/..]**
+
+   ``<Kunde>Meier</Kunde>; <PC>pc500</PC>``
+
  5. **//Auftrag[Kunde and PC]/PC**
+
+   ``<PC>pc500</PC>; <PC>pc600</PC>``
+
  6. **//*//Auftrag[Kunde='Meier']/Kunde**
+
+   ``<Kunde>Meier</Kunde>``
+
  7. **//Auftrag[not (Kunde='Reich')][PC != 'pc600']**
+
+   ``<Kunde>Meier</Kunde>; <PC>pc500</PC>``
+
  8. **/child::Auftraege/child::Auftrag/child::Kunde/following-sibling::*/parent::*/child::***
+
+   ``<Kunde>Meier</Kunde>; <PC>pc500</PC>; <Kunde>Reich</Kunde>; <PC>pc600</PC>``
+
  9. **/descendant-or-self::PC/preceding::*/ancestor-or-self::***
+
+   ``<Kunde>Meier</Kunde>; <PC>pc500</PC>; <Kunde>Reich</Kunde>; <PC>pc600</PC>;
+   <Kunde>Meier</Kunde>; <PC>pc500</PC>
+   <Kunde>Meier</Kunde>;
+   <PC>pc500</PC>
+   <Kunde>Reich</Kunde>; <PC>pc600</PC>
+   <Kunde>Reich</Kunde>'``
+
  10. **/descendant-or-self::Auftrag[../*/PC='pc600']/descendent::***
+
+   keine Ausgabe
+
 * **Welche der XPath-Ausdrücke lassen sich wie vereinfachen, wenn man das konkrete Dokument kennt?**
+
+ 1. //PC
+ 2. //Auftrag oder /*
+ 3. //Auftrag[Kunde='Meier'] oder //Auftrag[1]
+ 4. //Auftrag[Kunde='Meier'] oder //Auftrag[1]
+ 5. //PC
+ 6. //Auftrag[Kunde='Meier']/Kunde
+ 7. //Auftrag[Kunde='Meier'] oder //Auftrag[1]
+ 8. //Auftrag oder /*
+ 9. //PC/preceding::*/ancestor-or-self::*
+ 10. keine Ausgabe
+
 * **Welche der XPath-Ausdrücke lassen sich wie vereinfachen, wenn man nur die DTD kennt und die DTD folgendermaßen lautet?**
 ```
 <?xml version="1.0" encoding="iso-8859-1" ?>
@@ -138,3 +188,14 @@
 <!ELEMENT Kunde (#PCDATA)>
 <!ELEMENT PC (#PCDATA)>
 ```
+
+ 1. //PC
+ 2. /*
+ 3. -
+ 4. -
+ 5. //PC
+ 6. -
+ 7. -
+ 8. -
+ 9. -
+ 10. keine Ausgabe
