@@ -20,13 +20,29 @@
 **Geben Sie jeweils einen XPath-Ausdruck an, um die folgenden Knoten zu selektieren:**
 1. **Die Autoren des ersten Artikels.**
  ``/Publications/Proceedings/Article[1]/Autor``
+
+ da es immer nur einen Artikel je Koferenz gibt, macht es bestimmt mehr Sinn den Artikel der ersten Konferenz auszugeben:
+
+  ``//Proceedings[1]/Article/Author``
+
 2. **Die Konferenzen, bei der der Autor mit dem Nachnamen Suciu publiziert hat.**
-``.//Conference[]``
+
+  ``//Conference[../Article/Author/Surname = 'Suciu']``
+
 3. **Alle Proceedings, bei denen Artikel mit mehr als einem Autor publiziert wurden.**
-``//Proceedings[(Autor)&gt 1]`` //nicht ganz sicher
+
+  ``//Proceedings[count(./Article/Author)>1]``
+
 4. **Die Artikel, die sich auf den Artikel mit der ID 'A2' beziehen.**
-``//Article[@id='A2']``
+
+  ``//Article[@id='A2']``
 5. **Die Titel und jeweils der Nachname des ersten Autors aller Artikel.**
+  richtige Ausgabe in falscher Reihenfolge
+  ``//Article/Title | //Article/Author[1]/Surname``
+
+  richige Reihenfolge, aber alle Autoren?!
+  ``//Article/*[self::Title or self::Author[1]/Surname]``
+
 
 ---
 ## XPath-Ausdrücke (2)
