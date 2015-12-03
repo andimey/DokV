@@ -50,44 +50,44 @@
 
 1. **alle ```<person>```-Knoten,**
 
- //person
+   ``//person``
 
 2. **alle ```<name>```-Knoten,**
 
- //name
+ ``//name``
 
 3. **die Person mit id="EMP02",**
 
- //person [@id='EMP02']
+ ``//person [@id='EMP02']``
 
 4. **alle Personen mit Familien-Name: "Chan",**
 
- //person/name[family='Chan']/given
+ ``//person[./name/family='Chan']``
 
 5. **alle Personen mit Familienname "Chan" oder mit dem Vornamen "Ho" ,**
 
- //person/name[family='Chan'']/given[given='Ho']
+ ``//person/name[family='Chan'']/given[given='Ho']``
 
 6. **alle Personen mit einem oder mehreren ```<subordinate>```-Knoten (ohne Benutzung der Funktion count),**
 
- //links[(subordinate)!=0]/ancestor::person
+ ``//links[(subordinate)!=0]/ancestor::person``
 
 7. **alle Personen ohne Angaben zu ```<subordinate>``` (ohne Benutzung der Funktion count),**
 
- //links[not(subordinate)=1]/ancestor::person
+ ``//links[not(subordinate)=1]/ancestor::person``
 
 8. **die Personen-Knoten der Manager von Angestellten, deren Familienname "Law" ist,**
 
- //manager/ancestor::name[family='Law']
+ ``//manager/ancestor::name[family='Law']``
  -->keine Ahnung ob es geht
 
 9. **alle Personen, deren Gehalt mehr als 6000 $ beträgt,**
 
- //person[salary>6000]
+ ``//person[salary>6000]``
 
 10. **die Personenknoten der Manager der zuvor in 9.) selektierten Personen.**
 
- //manager/ancestor::person[salary>6000]
+ ``//manager/ancestor::person[salary>6000]``
  -->???
 
 ---
