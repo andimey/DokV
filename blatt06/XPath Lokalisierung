@@ -1,0 +1,10 @@
+1)
+//article[1]/author
+2)
+//surname[text( )="Suciu"]/preceding::conference[1]
+3)
+//proceedings[article/author[2]]
+4)
+//article[@reference="A2"]
+5)
+//article/*[self::author[1]/surname or self::title]
